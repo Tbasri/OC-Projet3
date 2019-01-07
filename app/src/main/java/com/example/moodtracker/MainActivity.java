@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                             .putInt(PREFS_MOOD, getCurrentMood() - 1)
                             .apply();
 
+// Stocker une liste de save mood sous forme de string en gson au lieu d'un int
+
                     refreshFragment(view);
                 }
             }
