@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <RelativeLayout
         android:id="@+id/fragment"
@@ -19,20 +18,20 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/imageView_main_comment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
-
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintHeight_max="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.25"
-        app:srcCompat="@drawable/ic_iconenew"
-        android:id="@+id/imageView_main_comment"/>
+        app:srcCompat="@drawable/ic_iconenew" />
 
     <ImageView
+        android:id="@+id/imageView_main_history"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
@@ -42,10 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_max="70dp"
         app:layout_constraintWidth_percent="0.25"
-        app:srcCompat="@drawable/ic_iconehistorique"
-        android:id="@+id/imageView_main_history"
-        />
-
+        app:srcCompat="@drawable/ic_iconehistorique" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

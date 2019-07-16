@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.utils;
 
 import android.content.Context;
 import android.view.GestureDetector;
@@ -20,8 +20,7 @@ public class OnSwipetouchListener implements View.OnTouchListener {
 
     private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
-        private static final int SWIPE_THRESHOLD = 100;
-        private static final int SWIPE_VELOCITY_THRESHOLD = 100;
+        private static final int SWIPE_THRESHOLD = 10;
 
         @Override
         public boolean onDown(MotionEvent e) {
@@ -30,21 +29,20 @@ public class OnSwipetouchListener implements View.OnTouchListener {
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            boolean result = false;
             try {
                 float diffY = e2.getY() - e1.getY();
-                if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                if (Math.abs(diffY) > SWIPE_THRESHOLD) {
                     if (diffY > 0) {
                         onSwipeBottom();
                     } else {
                         onSwipeTop();
                     }
-                    result = true;
+                    return true;
                 }
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
-            return result;
+            return false;
         }
     }
 
