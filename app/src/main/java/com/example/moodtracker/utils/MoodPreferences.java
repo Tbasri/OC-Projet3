@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 //fonction des enregistrer
 public class MoodPreferences {
@@ -45,7 +46,7 @@ public class MoodPreferences {
         return saveMood;
     }
 
-// recupere l'index du mood lier date grace a une boucle
+    // recupere l'index du mood lier date grace a une boucle
     public static int getMoodIndexForDate(Date date) {
         List<SaveMood> list = getMoods();
 
@@ -56,7 +57,7 @@ public class MoodPreferences {
 
             String today = new SimpleDateFormat("yyyyMMdd").format(date);
 
-            if (mood.date.equals(today)) {
+            if (mood.getDate().equals(today)) {
                 index = i;
 
             }
@@ -80,16 +81,17 @@ public class MoodPreferences {
         if (dateMood == null) {
             return 2;
         } else {
-            return dateMood.fragmentIndex;
+            return dateMood.getFragmentIndex();
         }
     }
+
     //recupere le commentaire lier a la date
     public static String getMoodCommentForDate(Date date) {
         SaveMood dateMood = getMoodForDate(date);
         if (dateMood == null) {
             return "";
         } else {
-            return dateMood.comment;
+            return dateMood.getComment();
         }
     }
 
@@ -106,7 +108,7 @@ public class MoodPreferences {
 
             list.add(newMood);
         } else {
-            newMood.fragmentIndex = newMood.fragmentIndex - 1;
+            newMood.setFragmentIndex(newMood.getFragmentIndex() - 1);
             list.set(listindex, newMood);
         }
 
@@ -115,4 +117,15 @@ public class MoodPreferences {
                 .putString("Mood", gson.toJson(list))
                 .apply();
     }
+    // cree une methode public static pour donnée les jours ecouler entre aujourdhuit et la date du mood
+
+
+    //permet de calculer le nombre de jours écoulés entre 2 date.
+    //date2 doit être postérieur à date1
+    public static long getDiffDays(Date date1, Date date2) {
+        long diffMilliseconds = date2.getTime() - date1.getTime();
+        return TimeUnit.DAYS.convert(diffMilliseconds, TimeUnit.MILLISECONDS);
+    }
+
 }
+

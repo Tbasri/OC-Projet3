@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //permet de chager de fragement
+    //permet de changer de fragement
     public void changeFragment(View view, Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(view.getId(), fragment);
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     // fonction qui permet d'ouvrir la classe History dans
 
     public void startHistory() {
-        Intent intent = new Intent(this, HistoricActivity.class);
+        Intent intent = new Intent(this, HistoryActivity.class);
         startActivity(intent);
     }
 

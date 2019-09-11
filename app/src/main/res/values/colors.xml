@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="very_sad_color">#FF0000</color>
+    <color name="sad_color">#808080</color>
+    <color name="normal_color">#0000FF</color>
+    <color name="good_color">#008000</color>
+    <color name="very_good_color">#FFFF00</color>
+
 </resources>
