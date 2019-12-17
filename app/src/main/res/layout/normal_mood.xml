@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000ff">
+    android:background="@color/ic_humeur_normal">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_centerInParent="true"
-        app:srcCompat="@drawable/ic_normal_mood"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/ic_smiley_normal" />
 </RelativeLayout>

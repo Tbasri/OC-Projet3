@@ -69,13 +69,13 @@ public class HistoricActivity extends AppCompatActivity {
         imageView1 = findViewById(R.id.commentary1);
 
 
-        ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.DynamicLayout);
+       // ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.DynamicLayout);
 
-        ConstraintSet set = new ConstraintSet();
-        set.clone(constraintLayout);
+       // ConstraintSet set = new ConstraintSet();
+       // set.clone(constraintLayout);
 
-        set.constrainPercentWidth(R.id.mood_day1, (float) 0.5);
-        set.applyTo(constraintLayout);
+       // set.constrainPercentWidth(R.id.mood_day1, (float) 0.5);
+       // set.applyTo(constraintLayout);
 
 // Add constrains - Here R.id.myconstraint_layout is id of your constrain layout
         //      set.constrainPercentHeight(R.id.myconstraint_layout, 0.4);

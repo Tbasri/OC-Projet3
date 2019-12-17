@@ -5,15 +5,14 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#008000	">
+    android:background="@color/good_color">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        app:srcCompat="@drawable/ic_good_mood"
-
-        />
+        app:srcCompat="@drawable/ic_smiley_happy"
+        android:contentDescription="TODO" />
 
 </RelativeLayout>

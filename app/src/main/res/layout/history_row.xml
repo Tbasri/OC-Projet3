@@ -20,6 +20,6 @@
         android:layout_height="50dp"
         android:layout_weight="1"
         android:visibility="invisible"
-        android:src="@android:drawable/sym_action_chat" />
+         />
 
 </LinearLayout>

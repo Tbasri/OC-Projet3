@@ -21,18 +21,23 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        app:srcCompat="@drawable/ic_iconenew" />
+        app:srcCompat="@drawable/ic_add_coment" />
 
     <ImageView
         android:id="@+id/imageView_main_history"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="8dp"
-        android:scaleType="fitCenter"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        app:srcCompat="@drawable/ic_iconehistorique" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_history" />
 
 
 </RelativeLayout>
