@@ -5,8 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
+
 
 import com.example.moodtracker.R;
 import com.example.moodtracker.utils.MoodPreferences;
@@ -150,37 +149,6 @@ public class HistoricActivity extends AppCompatActivity {
     }
 
 
-        /*cal.add(Calendar.DATE, -6);
-        Date dayMinus6 = cal.getTime();
-        int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
-        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(dayMinus6MoodIndex));
-    if(todayComment == null){
-        findViewById(R.id.commentary7).setVisibility(View.INVISIBLE);
-    }
-        else {
-        findViewById(R.id.commentary7).setVisibility(View.VISIBLE);
-    }
-        blabla(-6, R.id.ViewDayMood7);
-        blabla(-6, R.id.ViewDayMood7);
-        blabla(-6, R.id.ViewDayMood7);
-        blabla(-6, R.id.ViewDayMood7);
-        blabla(-6, R.id.ViewDayMood7);
 
-        onResume();
-        onPause();
-}
-
-    private void blabla(int amount, int viewId1, int viewId2, int viewId3) {
-        cal.add(Calendar.DATE, amount);
-        Date dayMinus6 = cal.getTime();
-        int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
-        findViewById(viewId1).setBackgroundResource(moodColor(dayMinus6MoodIndex));
-        if (todayComment == null) {
-            findViewById(viewId2).setVisibility(View.INVISIBLE);
-        } else {
-            findViewById(viewId3).setVisibility(View.VISIBLE);
-        }
-
-    }*/
 
 }

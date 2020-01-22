@@ -6,12 +6,14 @@
     android:id="@+id/DynamicLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.HistoricActivity">
+    tools:context=".activities.HistoryActivity">
 
     <View
         android:id="@+id/mood_day1"
         android:layout_width="411dp"
         android:layout_height="102dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.14"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +60,11 @@
         android:id="@+id/ViewDayMood6"
         android:layout_width="411dp"
         android:layout_height="102dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ViewDayMood5" />
 
     <View
@@ -77,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="Hier"
+        android:text="Il y a une semaine"
         app:layout_constraintStart_toStartOf="@+id/mood_day1"
         app:layout_constraintTop_toTopOf="@+id/mood_day1" />
 
@@ -85,105 +91,126 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Avant-Hier"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="113dp" />
+        android:text="Il y a six jours"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ViewDayMood2" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Il y a trois jours"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="218dp" />
+        android:text="Il y a cinq jours"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Il y a quatre jours"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="322dp" />
+        app:layout_constraintStart_toStartOf="@+id/ViewDayMood4"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood3" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Il y a cinq jours"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="427dp" />
+        android:text="Il y a trois jours"
+        app:layout_constraintStart_toStartOf="@+id/ViewDayMood5"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood4" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Il y a six jours"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="531dp" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Il y a une semaine"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="636dp" />
+        android:text="Avant-Hier"
+        app:layout_constraintStart_toStartOf="@+id/ViewDayMood6"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood5" />
 
     <ImageView
         android:id="@+id/commentary1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="39dp" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mood_day1"
+        app:layout_constraintEnd_toEndOf="@+id/mood_day1"
+        app:layout_constraintTop_toTopOf="@+id/mood_day1"
+        app:srcCompat="@drawable/ic_coment" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ViewDayMood7" />
 
     <ImageView
         android:id="@+id/commentary2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="145dp" />
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood2"
+        app:layout_constraintEnd_toEndOf="@+id/ViewDayMood2"
+        app:layout_constraintTop_toTopOf="@+id/ViewDayMood2"
+        app:srcCompat="@drawable/ic_coment" />
 
     <ImageView
         android:id="@+id/commentary3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="249dp" />
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood3"
+        app:layout_constraintEnd_toEndOf="@+id/ViewDayMood3"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood2"
+        app:srcCompat="@drawable/ic_coment" />
 
     <ImageView
         android:id="@+id/commentary4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="354dp" />
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood3"
+        app:srcCompat="@drawable/ic_coment" />
 
     <ImageView
         android:id="@+id/commentary5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="459dp" />
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood4"
+        app:srcCompat="@drawable/ic_coment" />
 
     <ImageView
         android:id="@+id/commentary6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="563dp" />
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood5"
+        app:srcCompat="@drawable/ic_coment" />
 
     <ImageView
         android:id="@+id/commentary7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_coment"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="663dp" />
+        android:layout_width="19dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood6"
+        app:srcCompat="@drawable/ic_coment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

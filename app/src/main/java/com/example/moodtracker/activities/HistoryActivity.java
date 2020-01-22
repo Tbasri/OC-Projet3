@@ -19,10 +19,49 @@ import com.google.gson.Gson;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
+
+    // Afficher couleur
+    private int moodColor(int moodIndex) {
+
+        int moodColor;
+
+        switch (moodIndex) {
+
+            case 0:
+                moodColor = (R.color.ic_tres_mauvaise_humeur);
+                break;
+
+            case 1:
+                moodColor = (R.color.ic_mauvaise_humeur);
+                break;
+
+            case 2:
+                moodColor = (R.color.ic_humeur_normal);
+                break;
+
+            case 3:
+                moodColor = (R.color.ic_launcher_background);
+                break;
+
+            case 4:
+                moodColor = (R.color.ic_launcher_background);
+                break;
+
+            default:
+                moodColor = (R.color.ic_humeur_normal);
+                break;
+
+        }
+        return moodColor;
+    }
+
+    ImageView imageView1;
+    ImageView commentaryOk;
 
     Gson gson = new Gson();
 
@@ -30,9 +69,9 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Le layoutde l'activité est activityHistory(xml)
-        setContentView(R.layout.activity_history);
-
+        // Le layout de l'activité est activityHistory(xml)
+        setContentView(R.layout.activity_historique);
+/*
         // on recupère la vue dans dont l'identidiant et history ln qui correspond au xml history activité
         LinearLayout parentView = findViewById(R.id.historyLl);
 
@@ -42,24 +81,75 @@ public class HistoryActivity extends AppCompatActivity {
         // on recupere l'historique et on le charge dans la variable savemoods (qui est une liste)
         List<SaveMood> saveMoods = MoodPreferences.getMoods();
 
-        // on parcourt savemood a l'aide de la boucle
-        for (int i = 0; i < saveMoods.size(); i++) {
-
-
             // on recupere l'index de savemoods et on la met dans la variable mood
             final SaveMood mood = saveMoods.get(i);
 
-            // on charge le layout d'une barre dans une vue Java
-            LayoutInflater inflater = LayoutInflater.from(this);
 
-            // view corespond a une barre dans le layout qui contient l'historique d'une journée
-            // la methode inflate permet de charger l' xml en java
-            View view = inflater.inflate(R.layout.history_row, null);
 
-            //on customize la vue
+// Apply the changes - mConstraintLayout is reference to it's view
+        //
+
+        Calendar cal = Calendar.getInstance();
+        Date today = cal.getTime();
+
+        // Récupérer la vue et afficher la bonne couleur rendre visible ou non le commentaire
+
+        String todayComment = MoodPreferences.getMoodCommentForDate(today);
+        findViewById(R.id.mood_day1).setBackgroundResource(moodColor(todayMoodIndex));
+        if (todayComment == null) {
+            findViewById(R.id.commentary1).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.commentary1).setVisibility(View.VISIBLE);
+        }
+
+        cal.add(Calendar.DATE, -1);
+        Date yesterday = cal.getTime();
+        findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(yesterdayMoodIndex));
+        if (todayComment == null) {
+            findViewById(R.id.commentary2).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.commentary2).setVisibility(View.VISIBLE);
+        }
+
+        cal.add(Calendar.DATE, -2);
+        Date dayMinus2 = cal.getTime();
+        findViewById(R.id.ViewDayMood3).setBackgroundResource(moodColor(dayMinus2MoodIndex));
+        if (todayComment == null) {
+            findViewById(R.id.commentary3).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.commentary3).setVisibility(View.VISIBLE);
+        }
+
+        cal.add(Calendar.DATE, -3);
+        Date dayMinus3 = cal.getTime();
+        findViewById(R.id.ViewDayMood4).setBackgroundResource(moodColor(dayMinus3MoodIndex));
+        if (todayComment == null) {
+            findViewById(R.id.commentary4).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.commentary4).setVisibility(View.VISIBLE);
+        }
+
+        cal.add(Calendar.DATE, -4);
+        Date dayMinus4 = cal.getTime();
+        findViewById(R.id.ViewDayMood5).setBackgroundResource(moodColor(dayMinus4MoodIndex));
+        if (todayComment == null) {
+            findViewById(R.id.commentary5).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.commentary5).setVisibility(View.VISIBLE);
+        }
+
+        cal.add(Calendar.DATE, -5);
+        Date dayMinus5 = cal.getTime();
+        findViewById(R.id.ViewDayMood6).setBackgroundResource(moodColor(dayMinus5MoodIndex));
+        if (todayComment == null) {
+            findViewById(R.id.commentary6).setVisibility(View.INVISIBLE);
+        } else {
+            findViewById(R.id.commentary6).setVisibility(View.VISIBLE);
+        }*/
+    }
+/*      //on customize la vue
 
             //view.setBackgroundColor(Color.BLACK);
-            int moodIndex = mood.getFragmentIndex();
             int moodColor = getColorFromIndex(moodIndex);
             view.setBackgroundResource(moodColor);
 
@@ -73,8 +163,6 @@ public class HistoryActivity extends AppCompatActivity {
                 //on calcule la différence entre la date du mood et aujourd'hui
                 long diffDays = MoodPreferences.getDiffDays(dateMood, new Date());
                 dateTxt.setText("il y a "+diffDays + " jours");
-            } catch (ParseException e) {
-                Log.e("HistoryActivity", "parse error: "+e);
             }
 
             if (mood.getComment() != null && !mood.getComment().equals("")) {
@@ -114,5 +202,5 @@ public class HistoryActivity extends AppCompatActivity {
             default:
                 return R.color.normal_color;
         }
-    }
+    }*/
 }
