@@ -84,8 +84,6 @@ public class HistoryActivity extends AppCompatActivity {
             // on recupere l'index de savemoods et on la met dans la variable mood
             final SaveMood mood = saveMoods.get(i);
 
-
-
 // Apply the changes - mConstraintLayout is reference to it's view
         //
 
