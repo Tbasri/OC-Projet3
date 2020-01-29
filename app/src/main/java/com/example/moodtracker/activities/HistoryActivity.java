@@ -60,8 +60,6 @@ public class HistoryActivity extends AppCompatActivity {
         return moodColor;
     }
 
-    ImageView imageView1;
-    ImageView commentaryOk;
 
     Gson gson = new Gson();
 
@@ -71,19 +69,16 @@ public class HistoryActivity extends AppCompatActivity {
 
         // Le layout de l'activité est activityHistory(xml)
         setContentView(R.layout.activity_historique);
-/*
+
         // on recupère la vue dans dont l'identidiant et history ln qui correspond au xml history activité
         LinearLayout parentView = findViewById(R.id.historyLl);
 
-        //ici charger le layout history_row grace à un layout inflater
-        //puis essayer de changer la couleur du linearlayout (background color)
 
         // on recupere l'historique et on le charge dans la variable savemoods (qui est une liste)
         List<SaveMood> saveMoods = MoodPreferences.getMoods();
 
-            // on recupere l'index de savemoods et on la met dans la variable mood
-            final SaveMood mood = saveMoods.get(i);
 
+/*
 // Apply the changes - mConstraintLayout is reference to it's view
         //
 
