@@ -31,16 +31,6 @@ public class MoodPreferences {
             }.getType());
         }
 
-        //  public static String getMoodIndexForComment(Comment comment) {
-
-        //     String json = sharedPreferences.getString();
-
-        //     List<SaveMood> saveMood = new ArrayList<>();
-
-        //       if (json != null) {
-        //          saveMood = gson.fromJson(json, new TypeToken<List<SaveMood>>() {
-        //         }.getType());
-        //      }
 
 
         return saveMood;

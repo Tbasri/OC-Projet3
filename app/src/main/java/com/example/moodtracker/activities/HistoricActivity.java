@@ -3,15 +3,18 @@ package com.example.moodtracker.activities;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.moodtracker.R;
+import com.example.moodtracker.models.SaveMood;
 import com.example.moodtracker.utils.MoodPreferences;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 // Ecran qui affiche l'historique des humeurs
 
@@ -64,24 +67,22 @@ public class HistoricActivity extends AppCompatActivity {
         setContentView(R.layout.activity_historique);
 
 
+        // Le layout de l'activité est activityHistory(xml)
+        setContentView(R.layout.activity_historique);
+
+        // on recupère la vue dans dont l'identidiant et history ln qui correspond au xml history activité
+        LinearLayout parentView = findViewById(R.id.historyLl);
+
+
+        // on recupere l'historique et on le charge dans la variable savemoods (qui est une liste)
+        List<SaveMood> saveMoods = MoodPreferences.getMoods();
+
+
+
         commentaryOk = findViewById(R.id.imageView_main_comment);
         imageView1 = findViewById(R.id.commentary1);
 
 
-       // ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.DynamicLayout);
-
-       // ConstraintSet set = new ConstraintSet();
-       // set.clone(constraintLayout);
-
-       // set.constrainPercentWidth(R.id.mood_day1, (float) 0.5);
-       // set.applyTo(constraintLayout);
-
-// Add constrains - Here R.id.myconstraint_layout is id of your constrain layout
-        //      set.constrainPercentHeight(R.id.myconstraint_layout, 0.4);
-        //
-
-// Apply the changes - mConstraintLayout is reference to it's view
-        //
 
         Calendar cal = Calendar.getInstance();
         Date today = cal.getTime();
