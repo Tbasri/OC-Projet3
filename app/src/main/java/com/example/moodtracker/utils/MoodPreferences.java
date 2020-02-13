@@ -32,7 +32,6 @@ public class MoodPreferences {
         }
 
 
-
         return saveMood;
     }
 
@@ -55,7 +54,7 @@ public class MoodPreferences {
         return index;
     }
 
-    //recupere la index du mood lier a la date sinon normalmood par default
+    //recupere la index du mood lier a la date sinon normal mood par default
     public static SaveMood getMoodForDate(Date date) {
         int index = getMoodIndexForDate(date);
         if (index != -1) {
@@ -107,9 +106,8 @@ public class MoodPreferences {
                 .putString("Mood", gson.toJson(list))
                 .apply();
     }
+
     // cree une methode public static pour donnée les jours ecouler entre aujourdhuit et la date du mood
-
-
     //permet de calculer le nombre de jours écoulés entre 2 date.
     //date2 doit être postérieur à date1
     public static long getDiffDays(Date date1, Date date2) {

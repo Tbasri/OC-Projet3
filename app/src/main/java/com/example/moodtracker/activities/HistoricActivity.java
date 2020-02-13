@@ -2,19 +2,17 @@ package com.example.moodtracker.activities;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.moodtracker.R;
-import com.example.moodtracker.models.SaveMood;
+
 import com.example.moodtracker.utils.MoodPreferences;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 // Ecran qui affiche l'historique des humeurs
 
@@ -22,6 +20,8 @@ public class HistoricActivity extends AppCompatActivity {
 
 
     // Afficher couleur
+//j'attribue un index de 0 à 4 sur chaque couleur
+
 
     private int moodColor(int moodIndex) {
 
@@ -42,11 +42,11 @@ public class HistoricActivity extends AppCompatActivity {
                 break;
 
             case 3:
-                moodColor = (R.color.ic_launcher_background);
+                moodColor = (R.color.ic_good_mood);
                 break;
 
             case 4:
-                moodColor = (R.color.ic_launcher_background);
+                moodColor = (R.color.ic_very_good_mood);
                 break;
 
             default:
@@ -57,8 +57,7 @@ public class HistoricActivity extends AppCompatActivity {
         return moodColor;
     }
 
-    ImageView imageView1;
-    ImageView commentaryOk;
+
 
 
     @Override
@@ -70,28 +69,22 @@ public class HistoricActivity extends AppCompatActivity {
         // Le layout de l'activité est activityHistory(xml)
         setContentView(R.layout.activity_historique);
 
-        // on recupère la vue dans dont l'identidiant et history ln qui correspond au xml history activité
-        LinearLayout parentView = findViewById(R.id.historyLl);
-
-
-        // on recupere l'historique et on le charge dans la variable savemoods (qui est une liste)
-        List<SaveMood> saveMoods = MoodPreferences.getMoods();
-
-
-
-        commentaryOk = findViewById(R.id.imageView_main_comment);
-        imageView1 = findViewById(R.id.commentary1);
-
-
-
+//obtient un calendrier utilisant le fuseau horaire actuel
         Calendar cal = Calendar.getInstance();
+        //renvoie un objet ressemblant à la date qui est représentée par la valeur d'heure de ce calendrier
         Date today = cal.getTime();
 
         // Récupérer la vue et afficher la bonne couleur rendre visible ou non le commentaire
 
+        //recupere le commentraire du jour pour l'assigner a todaycomment
         String todayComment = MoodPreferences.getMoodCommentForDate(today);
+
+        //recupere le mood lier a la date et l'attribue a today mood index
         int todayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(today);
+        // recupere le couleur du mood pour ensuite l'afficher la couleur sur le background du xml
         findViewById(R.id.mood_day1).setBackgroundResource(moodColor(todayMoodIndex));
+
+        //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
         if (todayComment == null) {
             findViewById(R.id.commentary1).setVisibility(View.INVISIBLE);
         } else {
@@ -149,7 +142,8 @@ public class HistoricActivity extends AppCompatActivity {
         }
     }
 
+// faire marcher la fonction visible invisible pour le commentaire dasn historicActivity
 
-
-
+    //layout "hier" pas en place a arranger ( enregistrement des mood dans historique decaler à reverifier) peut etre liée
+//
 }

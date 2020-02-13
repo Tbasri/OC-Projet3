@@ -13,7 +13,7 @@ public class SaveMood {
         this.date = date;
         this.fragmentIndex = fragmentIndex;
         this.comment = comment;
-    //    this.colorIndex = colorIndex;
+        //this.colorIndex = colorIndex;
     }
 
     public String getDate() {
@@ -28,9 +28,7 @@ public class SaveMood {
         return comment;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public void setDate(String date) { this.date = date; }
 
     public void setFragmentIndex(int fragmentIndex) {
         this.fragmentIndex = fragmentIndex;
@@ -39,8 +37,10 @@ public class SaveMood {
     public void setComment(String comment) {
         this.comment = comment;
     }
-    //public void colorIndex(){
-    //    return colorIndex ;
+
     }
+
+    // setdate et set comment a coder et mood position
+// comprendre la fonctionnaliter de colorIndex pk?
 //}
 
