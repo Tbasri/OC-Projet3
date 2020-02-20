@@ -68,7 +68,7 @@ public class MoodPreferences {
     public static int getMoodFragmentIndexForDate(Date date) {
         SaveMood dateMood = getMoodForDate(date);
         if (dateMood == null) {
-            return 2;
+            return 5;
         } else {
             return dateMood.getFragmentIndex();
         }
@@ -78,7 +78,7 @@ public class MoodPreferences {
     public static String getMoodCommentForDate(Date date) {
         SaveMood dateMood = getMoodForDate(date);
         if (dateMood == null) {
-            return "";
+            return null;
         } else {
             return dateMood.getComment();
         }

@@ -9,5 +9,6 @@
     <color name="normal_color">#a5468ad9</color>
     <color name="good_color">#83F637</color>
     <color name="very_good_color">#fff9ec4f</color>
+    <color name="default_color">#FFFFFF</color>
 
 </resources>

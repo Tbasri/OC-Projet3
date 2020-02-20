@@ -9,7 +9,7 @@
     tools:context=".activities.HistoricActivity">
 
     <View
-        android:id="@+id/mood_day1"
+        android:id="@+id/ViewDayMood1"
         android:layout_width="411dp"
         android:layout_height="102dp"
         android:layout_marginTop="1dp"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mood_day1" />
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood1" />
 
     <View
         android:id="@+id/ViewDayMood3"
@@ -76,23 +76,22 @@
         android:id="@+id/ViewDayMood7"
         android:layout_width="411dp"
         android:layout_height="102dp"
-        android:layout_marginTop="2dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood6" />
+        app:layout_constraintTop_toBottomOf="@+id/ViewDayMood6"
+        app:layout_constraintVertical_bias="0.6" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:text="Il y a une semaine"
-        app:layout_constraintStart_toStartOf="@+id/mood_day1"
-        app:layout_constraintTop_toTopOf="@+id/mood_day1" />
+        app:layout_constraintStart_toStartOf="@+id/ViewDayMood1"
+        app:layout_constraintTop_toTopOf="@+id/ViewDayMood1" />
 
     <TextView
         android:id="@+id/textView2"
@@ -134,16 +133,6 @@
         app:layout_constraintStart_toStartOf="@+id/ViewDayMood6"
         app:layout_constraintTop_toBottomOf="@+id/ViewDayMood5" />
 
-    <ImageView
-        android:id="@+id/commentary1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/mood_day1"
-        app:layout_constraintEnd_toEndOf="@+id/mood_day1"
-        app:layout_constraintTop_toTopOf="@+id/mood_day1"
-        app:srcCompat="@drawable/ic_coment" />
 
     <TextView
         android:id="@+id/textView7"
@@ -152,6 +141,18 @@
         android:text="Hier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ViewDayMood7" />
+
+    <ImageView
+        android:id="@+id/commentary1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ViewDayMood1"
+        app:layout_constraintEnd_toEndOf="@+id/ViewDayMood1"
+        app:layout_constraintTop_toTopOf="@+id/ViewDayMood1"
+        app:srcCompat="@drawable/ic_coment" />
+
 
     <ImageView
         android:id="@+id/commentary2"
