@@ -70,7 +70,7 @@ public class MoodPreferences {
         if (dateMood == null) {
             return 5;
         } else {
-            return dateMood.getFragmentIndex();
+            return dateMood.getMoodPosition();
         }
     }
 
@@ -97,7 +97,7 @@ public class MoodPreferences {
 
             list.add(newMood);
         } else {
-            newMood.setFragmentIndex(newMood.getFragmentIndex() - 1);
+            newMood.setMoodPosition(newMood.getMoodPosition() - 1);
             list.set(listindex, newMood);
         }
 

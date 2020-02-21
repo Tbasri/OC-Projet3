@@ -3,7 +3,6 @@ package com.example.moodtracker.models;
 public class SaveMood {
 
     private String date;
-    private int fragmentIndex;
     private String comment;
     private int moodPosition;
 
@@ -11,8 +10,9 @@ public class SaveMood {
 
     public SaveMood(String date, int fragmentIndex, String comment) {
         this.date = date;
-        this.fragmentIndex = fragmentIndex;
         this.comment = comment;
+        this.moodPosition = moodPosition;
+
         //this.colorIndex = colorIndex;
     }
 
@@ -20,27 +20,29 @@ public class SaveMood {
         return date;
     }
 
-    public int getFragmentIndex() {
-        return fragmentIndex;
-    }
 
     public String getComment() {
         return comment;
     }
 
-    public void setDate(String date) { this.date = date; }
+    public int getMoodPosition() {
+        return moodPosition;
+    }
 
-    public void setFragmentIndex(int fragmentIndex) {
-        this.fragmentIndex = fragmentIndex;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setComment(String comment) {
         this.comment = comment;
     }
 
+    public void setMoodPosition(int moodPosition) {
+        this.moodPosition = moodPosition;
     }
+}
 
-    // setdate et set comment a coder et mood position
+// setdate et set comment a coder et mood position
 // comprendre la fonctionnaliter de colorIndex pk?
 //}
 
