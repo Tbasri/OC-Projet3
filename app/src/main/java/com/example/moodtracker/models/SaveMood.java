@@ -8,7 +8,8 @@ public class SaveMood {
 
     //Constructeur
 
-    public SaveMood(String date, int fragmentIndex, String comment) {
+
+    public SaveMood(String date, String comment, int moodPosition) {
         this.date = date;
         this.comment = comment;
         this.moodPosition = moodPosition;
@@ -20,9 +21,8 @@ public class SaveMood {
         return date;
     }
 
-
     public String getComment() {
-        return comment;
+        return (comment);
     }
 
     public int getMoodPosition() {
@@ -33,13 +33,9 @@ public class SaveMood {
         this.date = date;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+    public void setComment(String comment) { this.comment = comment;}
 
-    public void setMoodPosition(int moodPosition) {
-        this.moodPosition = moodPosition;
-    }
+    public void setMoodPosition(int moodPosition) { this.moodPosition = moodPosition; }
 }
 
 // setdate et set comment a coder et mood position

@@ -31,7 +31,6 @@ public class MoodPreferences {
             }.getType());
         }
 
-
         return saveMood;
     }
 
@@ -91,7 +90,7 @@ public class MoodPreferences {
 
         List<SaveMood> list = MoodPreferences.getMoods();
         if (saveMood == null) {
-            newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), 2, "");
+            newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()),"",5);
             list.add(newMood);
         } else if (listindex == -1) {
 
@@ -110,6 +109,7 @@ public class MoodPreferences {
     // cree une methode public static pour donnée les jours ecouler entre aujourdhuit et la date du mood
     //permet de calculer le nombre de jours écoulés entre 2 date.
     //date2 doit être postérieur à date1
+
     public static long getDiffDays(Date date1, Date date2) {
         long diffMilliseconds = date2.getTime() - date1.getTime();
         return TimeUnit.DAYS.convert(diffMilliseconds, TimeUnit.MILLISECONDS);
