@@ -76,9 +76,9 @@ public class HistoricActivity extends AppCompatActivity {
         //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
 
         cal.add(Calendar.DATE, -2);
-
-        int todayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(today);
-        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(todayMoodIndex));
+        Date yersterday = cal.getTime();
+        int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
+        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(yersterdayMoodIndex));
         if (todayComment == null) {
             findViewById(R.id.commentary7).setVisibility(View.INVISIBLE);
         } else {

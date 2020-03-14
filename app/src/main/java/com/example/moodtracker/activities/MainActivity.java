@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("DEBUG", "OnSwipeTop");
 
                 //recupere l'index du mood du jour et le commentaire du jour
-                int todayMoodFragmentIndex = MoodPreferences.getMoodFragmentIndexForDate(new Date());
+                int todayMoodFragmentIndex = currentPosition;
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("DEBUG", "onSwipeBottom");
 
                 //recupere l'index du mood du jour et le commentaire du jour
-                int todayMoodFragmentIndex = MoodPreferences.getMoodFragmentIndexForDate(new Date());
+                int todayMoodFragmentIndex = currentPosition;
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires

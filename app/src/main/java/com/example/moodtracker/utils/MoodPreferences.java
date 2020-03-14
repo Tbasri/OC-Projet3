@@ -88,7 +88,7 @@ public class MoodPreferences {
         SaveMood newMood = saveMood;
         int listindex = MoodPreferences.getMoodIndexForDate(new Date());
         if (listindex == -1){
-            listindex = (0); //????
+            listindex = (-2); //????
 
         }
 
