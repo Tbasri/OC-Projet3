@@ -128,10 +128,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String myComment = edittext.getText().toString();
 
-                int todayMoodFragmentIndex = MoodPreferences.getMoodFragmentIndexForDate(new Date());
-
-                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()),myComment,todayMoodFragmentIndex  );
-
+                int todayMoodFragmentIndex = currentPosition;
+                if (todayMoodFragmentIndex == -1){
+                    todayMoodFragmentIndex = currentPosition +3;
+                }
+                String dateMood =new SimpleDateFormat("yyyyMMdd").format(new Date());
+                SaveMood newMood = new SaveMood(dateMood,myComment,todayMoodFragmentIndex  );
                 MoodPreferences.changeTodayMood(newMood);
 
             }

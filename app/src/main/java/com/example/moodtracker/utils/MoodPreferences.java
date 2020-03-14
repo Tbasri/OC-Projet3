@@ -87,6 +87,10 @@ public class MoodPreferences {
     public static void changeTodayMood(SaveMood saveMood) {
         SaveMood newMood = saveMood;
         int listindex = MoodPreferences.getMoodIndexForDate(new Date());
+        if (listindex == -1){
+            listindex = (0); //????
+
+        }
 
         List<SaveMood> list = MoodPreferences.getMoods();
         if (saveMood == null) {
