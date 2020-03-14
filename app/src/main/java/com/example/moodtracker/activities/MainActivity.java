@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
-    // fonction qui permet d'ouvrir la classe History dans
+    // fonction qui permet d'ouvrir la classe History dan
 
     public void startHistory() {
         Intent intent = new Intent(this, HistoricActivity.class);
