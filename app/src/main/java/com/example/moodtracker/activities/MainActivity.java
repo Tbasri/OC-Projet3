@@ -54,10 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
-                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment,todayMoodFragmentIndex  );
-                newMood.setComment("");
-                newMood.setDate("");
-                newMood.setMoodPosition(1);
+                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment,todayMoodFragmentIndex);
                 MoodPreferences.changeTodayMood(newMood);
 
                 if (currentPosition > 0) {
@@ -77,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
-                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment,todayMoodFragmentIndex  );
-
+                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment,todayMoodFragmentIndex);
                 MoodPreferences.changeTodayMood(newMood);
 
                 if (currentPosition < 4) {
@@ -130,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int todayMoodFragmentIndex = currentPosition;
                 if (todayMoodFragmentIndex == -1){
-                    todayMoodFragmentIndex = currentPosition +3;
+                    todayMoodFragmentIndex = currentPosition +2;
                 }
                 String dateMood =new SimpleDateFormat("yyyyMMdd").format(new Date());
                 SaveMood newMood = new SaveMood(dateMood,myComment,todayMoodFragmentIndex  );
