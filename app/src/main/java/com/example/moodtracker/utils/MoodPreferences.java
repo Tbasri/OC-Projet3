@@ -87,10 +87,6 @@ public class MoodPreferences {
     public static void changeTodayMood(SaveMood saveMood) {
         SaveMood newMood = saveMood;
         int listindex = MoodPreferences.getMoodIndexForDate(new Date());
-        if (listindex == -1){
-            listindex = (-2); //????
-
-        }
 
         List<SaveMood> list = MoodPreferences.getMoods();
         if (saveMood == null) {
@@ -100,7 +96,7 @@ public class MoodPreferences {
 
             list.add(newMood);
         } else {
-            newMood.setMoodPosition(newMood.getMoodPosition() - 1);
+            newMood.setMoodPosition(newMood.getMoodPosition() );
             list.set(listindex, newMood);
         }
 
@@ -109,15 +105,5 @@ public class MoodPreferences {
                 .putString("Mood", gson.toJson(list))
                 .apply();
     }
-
-    // cree une methode public static pour donnée les jours ecouler entre aujourdhuit et la date du mood
-    //permet de calculer le nombre de jours écoulés entre 2 date.
-    //date2 doit être postérieur à date1
-
-    public static long getDiffDays(Date date1, Date date2) {
-        long diffMilliseconds = date2.getTime() - date1.getTime();
-        return TimeUnit.DAYS.convert(diffMilliseconds, TimeUnit.MILLISECONDS);
-    }
-
 }
 

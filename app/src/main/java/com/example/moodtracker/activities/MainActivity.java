@@ -123,11 +123,9 @@ public class MainActivity extends AppCompatActivity {
         alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String myComment = edittext.getText().toString();
-
                 int todayMoodFragmentIndex = currentPosition;
-                if (todayMoodFragmentIndex == -1){
-                    todayMoodFragmentIndex = currentPosition +2;
-                }
+
+
                 String dateMood =new SimpleDateFormat("yyyyMMdd").format(new Date());
                 SaveMood newMood = new SaveMood(dateMood,myComment,todayMoodFragmentIndex  );
                 MoodPreferences.changeTodayMood(newMood);
