@@ -79,7 +79,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date yersterday = cal.getTime();
         int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
         findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(yersterdayMoodIndex));
-        if (todayComment == null) {
+        String yesterdayComment = MoodPreferences.getMoodCommentForDate(yersterday);
+        if (yesterdayComment == null) {
             findViewById(R.id.commentary7).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary7).setVisibility(View.VISIBLE);
@@ -89,7 +90,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus2 = cal.getTime();
         int dayMinus2MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus2);
         findViewById(R.id.ViewDayMood6).setBackgroundResource(moodColor(dayMinus2MoodIndex));
-        if (dayMinus2 == null) {
+        String dayMinus2Comment= MoodPreferences.getMoodCommentForDate(dayMinus2);
+        if (dayMinus2Comment == null) {
             findViewById(R.id.commentary6).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary6).setVisibility(View.VISIBLE);
@@ -99,7 +101,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus3 = cal.getTime();
         int dayMinus3MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus3);
         findViewById(R.id.ViewDayMood5).setBackgroundResource(moodColor(dayMinus3MoodIndex));
-        if (dayMinus3 == null) {
+        String dayMinus3Comment= MoodPreferences.getMoodCommentForDate(dayMinus3);
+        if (dayMinus3Comment == null) {
             findViewById(R.id.commentary5).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary5).setVisibility(View.VISIBLE);
@@ -109,7 +112,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus4 = cal.getTime();
         int dayMinus4MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus4);
         findViewById(R.id.ViewDayMood4).setBackgroundResource(moodColor(dayMinus4MoodIndex));
-        if (dayMinus4 == null) {
+        String dayMinus4Comment= MoodPreferences.getMoodCommentForDate(dayMinus4);
+        if (dayMinus4Comment == null) {
             findViewById(R.id.commentary4).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary4).setVisibility(View.VISIBLE);
@@ -119,7 +123,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus5 = cal.getTime();
         int dayMinus5MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus5);
         findViewById(R.id.ViewDayMood3).setBackgroundResource(moodColor(dayMinus5MoodIndex));
-        if (dayMinus5 == null) {
+        String dayMinus5Comment= MoodPreferences.getMoodCommentForDate(dayMinus5);
+        if (dayMinus5Comment == null) {
             findViewById(R.id.commentary3).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary3).setVisibility(View.VISIBLE);
@@ -129,7 +134,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus6 = cal.getTime();
         int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
         findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(dayMinus6MoodIndex));
-        if (dayMinus6 == null) {
+        String dayMinus6Comment= MoodPreferences.getMoodCommentForDate(dayMinus6);
+        if (dayMinus6Comment == null) {
             findViewById(R.id.commentary2).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary2).setVisibility(View.VISIBLE);
@@ -138,7 +144,8 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus7 = cal.getTime();
         int dayMinus7MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus7);
         findViewById(R.id.ViewDayMood1).setBackgroundResource(moodColor(dayMinus7MoodIndex));
-        if (dayMinus7 == null) {
+        String dayMinus7Comment= MoodPreferences.getMoodCommentForDate(dayMinus7);
+        if (dayMinus7Comment == null) {
             findViewById(R.id.commentary1).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary1).setVisibility(View.VISIBLE);
