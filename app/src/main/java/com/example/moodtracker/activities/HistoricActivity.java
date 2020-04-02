@@ -1,9 +1,15 @@
 package com.example.moodtracker.activities;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.moodtracker.R;
 import com.example.moodtracker.utils.MoodPreferences;
@@ -51,12 +57,37 @@ public class HistoricActivity extends AppCompatActivity {
         return moodColor;
     }
 
-
+    private Toast toast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
 
+      //  public void toast(View view){
+      //      Toast toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
+      //      View toastview = toast.getView();
+
+       //     TextView tv = (TextView) toastview.findViewById(android.R.id.message);
+
+        //    toast.show();
+      //  }
+
+        //    public void toastMaker(int position) {
+
+        //    String text = mListMoodItems.get(position).getComment();
+
+
+        //     ConstraintLayout Constraint  = getLayoutInflater();
+        //     View layout = inflater.inflate(R.layout.activity_historique,
+        //            (ImageView) findViewById(R.id.commentary1));
+        //    ImageView toastText = (ImageView) layout.findViewById(R.id.commentary1);
+        //    toastText.setText(text);
+
+
+        //    Toast toast = new Toast(getApplicationContext());
+        //   toast.setDuration(Toast.LENGTH_LONG);
+        //   toast.setView(layout);
+        //   toast.show();
 
         // Le layout de l'activité est activityHistory(xml)
         setContentView(R.layout.activity_historique);
@@ -64,19 +95,19 @@ public class HistoricActivity extends AppCompatActivity {
         //obtient un calendrier utilisant le fuseau horaire actuel
         Calendar cal = Calendar.getInstance();
         //renvoie un objet ressemblant à la date qui est représentée par la valeur d'heure de ce calendrier
-        Date today = cal.getTime();
-
         // Récupérer la vue et afficher la bonne couleur rendre visible ou non le commentaire
-
         //recupere le commentraire du jour pour l'assigner a todaycomment
-        String todayComment = MoodPreferences.getMoodCommentForDate(today);
-
         //recupere le mood lier a la date et l'attribue a today mood index
         // recupere la couleur du mood pour ensuite l'afficher la couleur sur le background du xml
         //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
 
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int with = dm.widthPixels;
+
         cal.add(Calendar.DATE, -2);
         Date yersterday = cal.getTime();
+
         int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
         findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(yersterdayMoodIndex));
         String yesterdayComment = MoodPreferences.getMoodCommentForDate(yersterday);
@@ -85,6 +116,10 @@ public class HistoricActivity extends AppCompatActivity {
         } else {
             findViewById(R.id.commentary7).setVisibility(View.VISIBLE);
         }
+
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+
 
         cal.add(Calendar.DATE, -3);
         Date dayMinus2 = cal.getTime();
