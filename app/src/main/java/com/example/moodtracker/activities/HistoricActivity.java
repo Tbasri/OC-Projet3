@@ -63,33 +63,15 @@ public class HistoricActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
 
-      //  public void toast(View view){
-      //      Toast toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
-      //      View toastview = toast.getView();
+       public void toast(View view){
+           Toast toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
+           View toastview = toast.getView();
 
-       //     TextView tv = (TextView) toastview.findViewById(android.R.id.message);
+           TextView tv = (TextView) toastview.findViewById(android.R.id.message);
 
-        //    toast.show();
-      //  }
+            toast.show();
+       }
 
-        //    public void toastMaker(int position) {
-
-        //    String text = mListMoodItems.get(position).getComment();
-
-
-        //     ConstraintLayout Constraint  = getLayoutInflater();
-        //     View layout = inflater.inflate(R.layout.activity_historique,
-        //            (ImageView) findViewById(R.id.commentary1));
-        //    ImageView toastText = (ImageView) layout.findViewById(R.id.commentary1);
-        //    toastText.setText(text);
-
-
-        //    Toast toast = new Toast(getApplicationContext());
-        //   toast.setDuration(Toast.LENGTH_LONG);
-        //   toast.setView(layout);
-        //   toast.show();
-
-        // Le layout de l'activité est activityHistory(xml)
         setContentView(R.layout.activity_historique);
 
         //obtient un calendrier utilisant le fuseau horaire actuel
@@ -105,7 +87,7 @@ public class HistoricActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int with = dm.widthPixels;
 
-        cal.add(Calendar.DATE, -2);
+        cal.add(Calendar.DATE, -1);
         Date yersterday = cal.getTime();
 
         int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
@@ -121,7 +103,7 @@ public class HistoricActivity extends AppCompatActivity {
         int width = dm.widthPixels;
 
 
-        cal.add(Calendar.DATE, -3);
+        cal.add(Calendar.DATE, -1);
         Date dayMinus2 = cal.getTime();
         int dayMinus2MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus2);
         findViewById(R.id.ViewDayMood6).setBackgroundResource(moodColor(dayMinus2MoodIndex));
@@ -132,7 +114,7 @@ public class HistoricActivity extends AppCompatActivity {
             findViewById(R.id.commentary6).setVisibility(View.VISIBLE);
         }
 
-        cal.add(Calendar.DATE, -4);
+        cal.add(Calendar.DATE, -1);
         Date dayMinus3 = cal.getTime();
         int dayMinus3MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus3);
         findViewById(R.id.ViewDayMood5).setBackgroundResource(moodColor(dayMinus3MoodIndex));
@@ -143,7 +125,7 @@ public class HistoricActivity extends AppCompatActivity {
             findViewById(R.id.commentary5).setVisibility(View.VISIBLE);
         }
 
-        cal.add(Calendar.DATE, -5);
+        cal.add(Calendar.DATE, -1);
         Date dayMinus4 = cal.getTime();
         int dayMinus4MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus4);
         findViewById(R.id.ViewDayMood4).setBackgroundResource(moodColor(dayMinus4MoodIndex));
@@ -154,7 +136,7 @@ public class HistoricActivity extends AppCompatActivity {
             findViewById(R.id.commentary4).setVisibility(View.VISIBLE);
         }
 
-        cal.add(Calendar.DATE, -6);
+        cal.add(Calendar.DATE, -1);
         Date dayMinus5 = cal.getTime();
         int dayMinus5MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus5);
         findViewById(R.id.ViewDayMood3).setBackgroundResource(moodColor(dayMinus5MoodIndex));
@@ -165,7 +147,7 @@ public class HistoricActivity extends AppCompatActivity {
             findViewById(R.id.commentary3).setVisibility(View.VISIBLE);
         }
 
-        cal.add(Calendar.DATE, -7);
+        cal.add(Calendar.DATE, -1);
         Date dayMinus6 = cal.getTime();
         int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
         findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(dayMinus6MoodIndex));
@@ -175,7 +157,7 @@ public class HistoricActivity extends AppCompatActivity {
         } else {
             findViewById(R.id.commentary2).setVisibility(View.VISIBLE);
         }
-        cal.add(Calendar.DATE, -8);
+        cal.add(Calendar.DATE, -1);
         Date dayMinus7 = cal.getTime();
         int dayMinus7MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus7);
         findViewById(R.id.ViewDayMood1).setBackgroundResource(moodColor(dayMinus7MoodIndex));
