@@ -2,14 +2,11 @@ package com.example.moodtracker.activities;
 
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.moodtracker.R;
 import com.example.moodtracker.utils.MoodPreferences;
@@ -57,22 +54,16 @@ public class HistoricActivity extends AppCompatActivity {
         return moodColor;
     }
 
-    private Toast toast;
+    ImageView comment1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
 
-       public void toast(View view){
-           Toast toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
-           View toastview = toast.getView();
+        comment1 = (ImageView) findViewById(R.id.commentary1);
 
-           TextView tv = (TextView) toastview.findViewById(android.R.id.message);
-
-            toast.show();
-       }
-
-        setContentView(R.layout.activity_historique);
 
         //obtient un calendrier utilisant le fuseau horaire actuel
         Calendar cal = Calendar.getInstance();
@@ -107,7 +98,7 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus2 = cal.getTime();
         int dayMinus2MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus2);
         findViewById(R.id.ViewDayMood6).setBackgroundResource(moodColor(dayMinus2MoodIndex));
-        String dayMinus2Comment= MoodPreferences.getMoodCommentForDate(dayMinus2);
+        String dayMinus2Comment = MoodPreferences.getMoodCommentForDate(dayMinus2);
         if (dayMinus2Comment == null) {
             findViewById(R.id.commentary6).setVisibility(View.INVISIBLE);
         } else {
@@ -118,7 +109,7 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus3 = cal.getTime();
         int dayMinus3MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus3);
         findViewById(R.id.ViewDayMood5).setBackgroundResource(moodColor(dayMinus3MoodIndex));
-        String dayMinus3Comment= MoodPreferences.getMoodCommentForDate(dayMinus3);
+        String dayMinus3Comment = MoodPreferences.getMoodCommentForDate(dayMinus3);
         if (dayMinus3Comment == null) {
             findViewById(R.id.commentary5).setVisibility(View.INVISIBLE);
         } else {
@@ -129,7 +120,7 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus4 = cal.getTime();
         int dayMinus4MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus4);
         findViewById(R.id.ViewDayMood4).setBackgroundResource(moodColor(dayMinus4MoodIndex));
-        String dayMinus4Comment= MoodPreferences.getMoodCommentForDate(dayMinus4);
+        String dayMinus4Comment = MoodPreferences.getMoodCommentForDate(dayMinus4);
         if (dayMinus4Comment == null) {
             findViewById(R.id.commentary4).setVisibility(View.INVISIBLE);
         } else {
@@ -140,7 +131,7 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus5 = cal.getTime();
         int dayMinus5MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus5);
         findViewById(R.id.ViewDayMood3).setBackgroundResource(moodColor(dayMinus5MoodIndex));
-        String dayMinus5Comment= MoodPreferences.getMoodCommentForDate(dayMinus5);
+        String dayMinus5Comment = MoodPreferences.getMoodCommentForDate(dayMinus5);
         if (dayMinus5Comment == null) {
             findViewById(R.id.commentary3).setVisibility(View.INVISIBLE);
         } else {
@@ -151,7 +142,7 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus6 = cal.getTime();
         int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
         findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(dayMinus6MoodIndex));
-        String dayMinus6Comment= MoodPreferences.getMoodCommentForDate(dayMinus6);
+        String dayMinus6Comment = MoodPreferences.getMoodCommentForDate(dayMinus6);
         if (dayMinus6Comment == null) {
             findViewById(R.id.commentary2).setVisibility(View.INVISIBLE);
         } else {
@@ -161,15 +152,23 @@ public class HistoricActivity extends AppCompatActivity {
         Date dayMinus7 = cal.getTime();
         int dayMinus7MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus7);
         findViewById(R.id.ViewDayMood1).setBackgroundResource(moodColor(dayMinus7MoodIndex));
-        String dayMinus7Comment= MoodPreferences.getMoodCommentForDate(dayMinus7);
+        final String dayMinus7Comment = MoodPreferences.getMoodCommentForDate(dayMinus7);
         if (dayMinus7Comment == null) {
             findViewById(R.id.commentary1).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.commentary1).setVisibility(View.VISIBLE);
         }
-    }}
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dayMinus7Comment == null) {
+                    Toast.makeText(HistoricActivity.this, "no comment save", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 // faire marcher la fonction visible invisible pour le commentaire dasn historicActivity
 
-    //layout "hier" pas en place a arranger ( enregistrement des mood dans historique decaler à reverifier) peut etre liée
+//layout "hier" pas en place a arranger ( enregistrement des mood dans historique decaler à reverifier) peut etre liée
 //}
+    }}
