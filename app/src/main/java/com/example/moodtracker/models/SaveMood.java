@@ -21,6 +21,7 @@ public class SaveMood {
         return date;
     }
 
+
     public String getComment() {
         return (comment);
     }
