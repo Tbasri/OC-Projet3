@@ -62,10 +62,10 @@ public class HistoricActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
 
-       // comment1 = findViewById(R.id.commentary1);
-       // comment1.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-         //   public void onClick(View v) {
+        comment1 = findViewById(R.id.commentary1);
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
                 //obtient un calendrier utilisant le fuseau horaire actuel
@@ -165,12 +165,8 @@ public class HistoricActivity extends AppCompatActivity {
                     findViewById(R.id.commentary1).setVisibility(View.VISIBLE);
 
                 }
-             //   Toast.makeText(HistoricActivity.this, dayMinus7Comment, Toast.LENGTH_LONG).show();
-
-
+                Toast.makeText(HistoricActivity.this, dayMinus7Comment, Toast.LENGTH_LONG).show();
             }
-        });
-
-
+        }); //end setonclick
     }
 }
