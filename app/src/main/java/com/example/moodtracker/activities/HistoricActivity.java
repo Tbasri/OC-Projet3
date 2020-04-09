@@ -55,23 +55,26 @@ public class HistoricActivity extends AppCompatActivity {
     }
 
     ImageView comment1;
+    ImageView comment2;
+    ImageView comment3;
+    ImageView comment4;
+    ImageView comment5;
+    ImageView comment6;
+    ImageView comment7;
 
+
+    public void displayToast(Date commentDate) {
+        final String commentTxt = MoodPreferences.getMoodCommentForDate(commentDate);
+        Toast.makeText(HistoricActivity.this, commentTxt, Toast.LENGTH_LONG).show();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
 
-        comment1 = findViewById(R.id.commentary1);
-        comment1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-              //  final String dayMinus7Comment = MoodPreferences.getMoodCommentForDate(dayMinus7);
-
-             //   Toast.makeText(HistoricActivity.this, dayMinus7Comment, Toast.LENGTH_LONG).show();
-            }
-        }); //end setonclick
         //obtient un calendrier utilisant le fuseau horaire actuel
         Calendar cal = Calendar.getInstance();
         //renvoie un objet ressemblant à la date qui est représentée par la valeur d'heure de ce calendrier
@@ -81,93 +84,144 @@ public class HistoricActivity extends AppCompatActivity {
         // recupere la couleur du mood pour ensuite l'afficher la couleur sur le background du xml
         //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int with = dm.widthPixels;
+     //   DisplayMetrics dm = new DisplayMetrics();
+      //  getWindowManager().getDefaultDisplay().getMetrics(dm);
+      //  int with = dm.widthPixels;
 
+        comment7 = findViewById(R.id.commentary7);
         cal.add(Calendar.DATE, -1);
-        Date yersterday = cal.getTime();
-
+        final Date yersterday = cal.getTime();
         int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
         findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(yersterdayMoodIndex));
         String yesterdayComment = MoodPreferences.getMoodCommentForDate(yersterday);
         if (yesterdayComment == null) {
-            findViewById(R.id.commentary7).setVisibility(View.INVISIBLE);
+            comment7.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary7).setVisibility(View.VISIBLE);
+            comment7.setVisibility(View.VISIBLE);
         }
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(yersterday);
 
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
+            }
+        });
 
+     //   getWindowManager().getDefaultDisplay().getMetrics(dm);
+      //  int width = dm.widthPixels;
 
+        comment2 = findViewById(R.id.commentary2);
         cal.add(Calendar.DATE, -1);
-        Date dayMinus2 = cal.getTime();
+        final Date dayMinus2 = cal.getTime();
         int dayMinus2MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus2);
         findViewById(R.id.ViewDayMood6).setBackgroundResource(moodColor(dayMinus2MoodIndex));
         String dayMinus2Comment = MoodPreferences.getMoodCommentForDate(dayMinus2);
         if (dayMinus2Comment == null) {
-            findViewById(R.id.commentary6).setVisibility(View.INVISIBLE);
+            comment6.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary6).setVisibility(View.VISIBLE);
+            comment6.setVisibility(View.VISIBLE);
         }
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(dayMinus2);
 
+            }
+        });
+        comment2 = findViewById(R.id.commentary2);
         cal.add(Calendar.DATE, -1);
-        Date dayMinus3 = cal.getTime();
+        final Date dayMinus3 = cal.getTime();
         int dayMinus3MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus3);
         findViewById(R.id.ViewDayMood5).setBackgroundResource(moodColor(dayMinus3MoodIndex));
         String dayMinus3Comment = MoodPreferences.getMoodCommentForDate(dayMinus3);
         if (dayMinus3Comment == null) {
-            findViewById(R.id.commentary5).setVisibility(View.INVISIBLE);
+            comment5.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary5).setVisibility(View.VISIBLE);
+            comment5.setVisibility(View.VISIBLE);
         }
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(dayMinus3);
 
+            }
+        });
+        comment2 = findViewById(R.id.commentary2);
         cal.add(Calendar.DATE, -1);
-        Date dayMinus4 = cal.getTime();
+        final Date dayMinus4 = cal.getTime();
         int dayMinus4MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus4);
         findViewById(R.id.ViewDayMood4).setBackgroundResource(moodColor(dayMinus4MoodIndex));
         String dayMinus4Comment = MoodPreferences.getMoodCommentForDate(dayMinus4);
         if (dayMinus4Comment == null) {
-            findViewById(R.id.commentary4).setVisibility(View.INVISIBLE);
+            comment4.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary4).setVisibility(View.VISIBLE);
+            comment4.setVisibility(View.VISIBLE);
         }
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(dayMinus4);
 
+            }
+        });
+        comment2 = findViewById(R.id.commentary2);
         cal.add(Calendar.DATE, -1);
-        Date dayMinus5 = cal.getTime();
+        final Date dayMinus5 = cal.getTime();
         int dayMinus5MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus5);
         findViewById(R.id.ViewDayMood3).setBackgroundResource(moodColor(dayMinus5MoodIndex));
         String dayMinus5Comment = MoodPreferences.getMoodCommentForDate(dayMinus5);
         if (dayMinus5Comment == null) {
-            findViewById(R.id.commentary3).setVisibility(View.INVISIBLE);
+            comment3.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary3).setVisibility(View.VISIBLE);
+            comment3.setVisibility(View.VISIBLE);
             Toast.makeText(HistoricActivity.this, "", Toast.LENGTH_LONG).show();
         }
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(dayMinus5);
 
+            }
+        });
+        comment2 = findViewById(R.id.commentary2);
         cal.add(Calendar.DATE, -1);
-        Date dayMinus6 = cal.getTime();
-        int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
-        findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(dayMinus6MoodIndex));
-        String dayMinus6Comment = MoodPreferences.getMoodCommentForDate(dayMinus6);
+         final Date dayMinus6 = cal.getTime();
+         int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
+         findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(dayMinus6MoodIndex));
+         String dayMinus6Comment = MoodPreferences.getMoodCommentForDate(dayMinus6);
         if (dayMinus6Comment == null) {
-            findViewById(R.id.commentary2).setVisibility(View.INVISIBLE);
+            comment2.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary2).setVisibility(View.VISIBLE);
-            // Toast.makeText(HistoricActivity.this, dayMinus6Comment, Toast.LENGTH_LONG).show();
+            comment2.setVisibility(View.VISIBLE);
+
         }
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(dayMinus6);
+
+            }
+        });
+
+        comment1 = findViewById(R.id.commentary1);
         cal.add(Calendar.DATE, -1);
-        Date dayMinus7 = cal.getTime();
+        final Date dayMinus7 = cal.getTime();
         int dayMinus7MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus7);
         findViewById(R.id.ViewDayMood1).setBackgroundResource(moodColor(dayMinus7MoodIndex));
         final String dayMinus7Comment = MoodPreferences.getMoodCommentForDate(dayMinus7);
 
         if (dayMinus7Comment == null) {
-            findViewById(R.id.commentary1).setVisibility(View.INVISIBLE);
+            comment1.setVisibility(View.INVISIBLE);
         } else {
-            findViewById(R.id.commentary1).setVisibility(View.VISIBLE);
-
+            comment1.setVisibility(View.VISIBLE);
         }
+
+        comment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayToast(dayMinus7);
+
+            }
+        });
     }
 }
