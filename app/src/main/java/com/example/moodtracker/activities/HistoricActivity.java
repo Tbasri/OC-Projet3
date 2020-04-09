@@ -66,7 +66,6 @@ public class HistoricActivity extends AppCompatActivity {
     public void displayToast(Date commentDate) {
         final String commentTxt = MoodPreferences.getMoodCommentForDate(commentDate);
         Toast.makeText(HistoricActivity.this, commentTxt, Toast.LENGTH_LONG).show();
-
     }
 
     @Override
