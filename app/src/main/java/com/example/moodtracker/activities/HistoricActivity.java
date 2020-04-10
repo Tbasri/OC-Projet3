@@ -101,16 +101,13 @@ public class HistoricActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     displayToast(yersterday);
-
                 }
-
-
             });
 
             //   getWindowManager().getDefaultDisplay().getMetrics(dm);
             //  int width = dm.widthPixels;
 
-            comment6 = findViewById(R.id.commentary7);
+            comment6 = findViewById(R.id.commentary6);
             cal.add(Calendar.DATE, -1);
             final Date dayMinus2 = cal.getTime();
             int dayMinus2MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus2);
@@ -124,11 +121,9 @@ public class HistoricActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         displayToast(dayMinus2);
-
                     }
-
-
                 });
+
                 comment5 = findViewById(R.id.commentary5);
                 cal.add(Calendar.DATE, -1);
                 final Date dayMinus3 = cal.getTime();
@@ -143,11 +138,9 @@ public class HistoricActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             displayToast(dayMinus3);
-
                         }
-
-
                     });
+
                     comment4 = findViewById(R.id.commentary4);
                     cal.add(Calendar.DATE, -1);
                     final Date dayMinus4 = cal.getTime();
@@ -162,11 +155,9 @@ public class HistoricActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 displayToast(dayMinus4);
-
                             }
-
-
                         });
+
                         comment3 = findViewById(R.id.commentary3);
                         cal.add(Calendar.DATE, -1);
                         final Date dayMinus5 = cal.getTime();
@@ -181,11 +172,9 @@ public class HistoricActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
                                     displayToast(dayMinus5);
-
                                 }
-
-
                             });
+
                             comment2 = findViewById(R.id.commentary2);
                             cal.add(Calendar.DATE, -1);
                             final Date dayMinus6 = cal.getTime();
@@ -196,13 +185,11 @@ public class HistoricActivity extends AppCompatActivity {
                                 comment2.setVisibility(View.INVISIBLE);
                             } else {
                                 comment2.setVisibility(View.VISIBLE);
-
                             }
                             comment2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     displayToast(dayMinus6);
-
                                 }
                             });
 
@@ -221,11 +208,13 @@ public class HistoricActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View v) {
                                         displayToast(dayMinus7);
-
                                     }
-
-
                                 });
                             }
                         }
-                    }}}}}}
+                    }
+                }
+            }
+        }
+    }
+}
