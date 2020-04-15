@@ -1,6 +1,7 @@
 package com.example.moodtracker.activities;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,6 +19,82 @@ public class HistoricActivity extends AppCompatActivity {
 
     // Afficher couleur
 //j'attribue un index de 0 à 4 sur chaque couleur
+
+  /*  private void getDeviceMetrics(){
+        //Get Device Width and Height
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager windowmanager = (WindowManager) getApplicationContext().getSystemService(getApplicationContext().WINDOW_SERVICE);
+        windowmanager.getDefaultDisplay().getMetrics(displayMetrics);
+        deviceWidth = displayMetrics.widthPixels;
+    }
+    //Define FrameLayout metrics with device metrics * size of mood
+    final double [] viewSizeMultiplier = {0.25, 0.4, 0.6, 0.8, 1};
+    getDeviceMetrics();
+    FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+            (int) (deviceWidth*viewSizeMultiplier),
+            (int) deviceHeight/9);
+
+    private static String getDensityName(Context context) {
+        float density = context.getResources().getDisplayMetrics().density;
+        if () {
+            return "";
+        }
+        if () {
+            return "";
+        }
+        if () {
+            return "";
+        }
+        if () {
+            return "";
+        }
+        if (density >= 1.0) {
+            return "mdpi";
+        }
+        return "ldpi";
+    }
+    DisplayMetrics metrics = new DisplayMetrics();
+    getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+switch(metrics.densityDpi) {
+        case DisplayMetrics.DENSITY_LOW:
+            break;
+
+        case DisplayMetrics.DENSITY_MEDIUM:
+            break;
+
+        case DisplayMetrics.DENSITY_HIGH:
+            break;
+    }
+
+    private int widthPixels(int moodIndex) {
+
+        int widthPixels;
+
+        switch (metrics.widthPixels){
+
+            case 0:
+
+                widthPixels = DisplayMetrics/1;
+            case 1:
+
+                widthPixels = DisplayMetrics/2;
+
+            case 2:
+
+                widthPixels = DisplayMetrics/3;
+
+            case 3:
+
+                widthPixels = DisplayMetrics/4;
+
+        }
+*/
+
+
+
+
+    }
 
     private int moodColor(int moodIndex) {
 
@@ -200,5 +277,3 @@ public class HistoricActivity extends AppCompatActivity {
         });
     }
 }
-
-
