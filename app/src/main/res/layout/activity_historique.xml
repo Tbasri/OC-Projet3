@@ -10,11 +10,9 @@
 
     <View
         android:id="@+id/ViewDayMood1"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.14"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +21,7 @@
 
     <View
         android:id="@+id/ViewDayMood2"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +31,7 @@
 
     <View
         android:id="@+id/ViewDayMood3"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +41,7 @@
 
     <View
         android:id="@+id/ViewDayMood4"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +51,7 @@
 
     <View
         android:id="@+id/ViewDayMood5"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +61,7 @@
 
     <View
         android:id="@+id/ViewDayMood6"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +72,7 @@
 
     <View
         android:id="@+id/ViewDayMood7"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="102dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
