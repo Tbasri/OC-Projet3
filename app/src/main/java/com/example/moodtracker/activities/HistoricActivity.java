@@ -3,6 +3,7 @@ package com.example.moodtracker.activities;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -87,14 +88,49 @@ switch(metrics.densityDpi) {
             case 3:
 
                 widthPixels = DisplayMetrics/4;
+        }
+
+
+    }
+
+    private  int widthofmood(int moodIndex){
+
+        int widthofmood;
+
+        switch (moodIndex) {
+            case 0:
+                widthofmood = ;
+                break;
+
+            case 1:
+                widthofmood = ;
+                break;
+
+            case 2:
+                widthofmood= ;
+                break;
+
+            case 3:
+                widthofmood = ;
+                break;
+
+            case 4:
+                widthofmood =
+                ;
+                break;
+
+            default:
+                widthofmood = ;
+                break;
 
         }
-*/
-
 
 
 
     }
+
+*/
+
 
     private int moodColor(int moodIndex) {
 
@@ -130,6 +166,8 @@ switch(metrics.densityDpi) {
         return moodColor;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,15 +183,18 @@ switch(metrics.densityDpi) {
         // recupere la couleur du mood pour ensuite l'afficher la couleur sur le background du xml
         //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
 
-        //   DisplayMetrics dm = new DisplayMetrics();
-        //  getWindowManager().getDefaultDisplay().getMetrics(dm);
-        //  int with = dm.widthPixels;
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+         int width = metrics.widthPixels;
 
 
         cal.add(Calendar.DATE, -1);
         Date yersterday = cal.getTime();
         int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
         findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(yersterdayMoodIndex));
+     //    findViewById(R.id.ViewDayMood7).getLayoutParams().width = findViewById(R.id.ViewDayMood7).getLayoutParams().width/2;
+     //  int oldwidth = (R.id.ViewDayMood7).getLayoutParams().width;
+     //  params.width = viewDayMood1View.getLayoutParams().width/2;
         final String yesterdayComment = MoodPreferences.getMoodCommentForDate(yersterday);
         ImageView comment7 = findViewById(R.id.commentary7);
         if (yesterdayComment == null) {
