@@ -92,44 +92,48 @@ switch(metrics.densityDpi) {
 
 
     }
+*/
 
-    private  int widthofmood(int moodIndex){
+// fonction qui permet de retourner la taille en fonction de leur mood
+    private int widthOfMood(int moodIndex) {
 
-        int widthofmood;
+        int widthOfMood;
+        // creation de la d'un objet de type DisplayMetrics
+        DisplayMetrics metrics = new DisplayMetrics();
+        // utilisation du windows manager pour recuperer les dimensions de l'ecran qui est mis dans l'objet metrics
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int screenwidth = metrics.widthPixels;
 
         switch (moodIndex) {
             case 0:
-                widthofmood = ;
+                widthOfMood = (int) ( screenwidth * 0.2);
                 break;
 
             case 1:
-                widthofmood = ;
+                widthOfMood = (int) ( screenwidth * 0.4);
                 break;
 
             case 2:
-                widthofmood= ;
+                widthOfMood = (int) ( screenwidth * 0.6);
                 break;
 
             case 3:
-                widthofmood = ;
+                widthOfMood = (int) ( screenwidth * 0.8);
                 break;
 
             case 4:
-                widthofmood =
-                ;
+                widthOfMood = (int)  screenwidth ;
                 break;
 
             default:
-                widthofmood = ;
+                widthOfMood = (int) ( screenwidth * 0.2);
                 break;
 
         }
-
-
-
+        return widthOfMood;
     }
 
-*/
+
 
 
     private int moodColor(int moodIndex) {
@@ -183,19 +187,14 @@ switch(metrics.densityDpi) {
         // recupere la couleur du mood pour ensuite l'afficher la couleur sur le background du xml
         //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-         int width = metrics.widthPixels;
 
 
         cal.add(Calendar.DATE, -1);
-        Date yersterday = cal.getTime();
-        int yersterdayMoodIndex = MoodPreferences.getMoodFragmentIndexForDate(yersterday);
-        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(yersterdayMoodIndex));
-     //    findViewById(R.id.ViewDayMood7).getLayoutParams().width = findViewById(R.id.ViewDayMood7).getLayoutParams().width/2;
-     //  int oldwidth = (R.id.ViewDayMood7).getLayoutParams().width;
-     //  params.width = viewDayMood1View.getLayoutParams().width/2;
-        final String yesterdayComment = MoodPreferences.getMoodCommentForDate(yersterday);
+        Date dayMinus1 = cal.getTime();
+        int dayMinus1MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus1);
+        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(dayMinus1MoodIndex));
+        findViewById(R.id.ViewDayMood7).getLayoutParams().width = widthOfMood(dayMinus1MoodIndex);
+        final String yesterdayComment = MoodPreferences.getMoodCommentForDate(dayMinus1);
         ImageView comment7 = findViewById(R.id.commentary7);
         if (yesterdayComment == null) {
             comment7.setVisibility(View.INVISIBLE);
@@ -213,6 +212,7 @@ switch(metrics.densityDpi) {
         Date dayMinus2 = cal.getTime();
         int dayMinus2MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus2);
         findViewById(R.id.ViewDayMood6).setBackgroundResource(moodColor(dayMinus2MoodIndex));
+        findViewById(R.id.ViewDayMood6).getLayoutParams().width = widthOfMood(dayMinus2MoodIndex);
         final String dayMinus2Comment = MoodPreferences.getMoodCommentForDate(dayMinus2);
         ImageView comment6 = findViewById(R.id.commentary6);
         if (dayMinus2Comment == null) {
@@ -231,6 +231,7 @@ switch(metrics.densityDpi) {
         Date dayMinus3 = cal.getTime();
         int dayMinus3MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus3);
         findViewById(R.id.ViewDayMood5).setBackgroundResource(moodColor(dayMinus3MoodIndex));
+        findViewById(R.id.ViewDayMood5).getLayoutParams().width = widthOfMood(dayMinus3MoodIndex);
         final String dayMinus3Comment = MoodPreferences.getMoodCommentForDate(dayMinus3);
         ImageView comment5 = findViewById(R.id.commentary5);
         if (dayMinus3Comment == null) {
@@ -249,6 +250,7 @@ switch(metrics.densityDpi) {
         Date dayMinus4 = cal.getTime();
         int dayMinus4MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus4);
         findViewById(R.id.ViewDayMood4).setBackgroundResource(moodColor(dayMinus4MoodIndex));
+        findViewById(R.id.ViewDayMood4).getLayoutParams().width = widthOfMood(dayMinus4MoodIndex);
         final String dayMinus4Comment = MoodPreferences.getMoodCommentForDate(dayMinus4);
         ImageView comment4 = findViewById(R.id.commentary4);
         if (dayMinus4Comment == null) {
@@ -267,6 +269,7 @@ switch(metrics.densityDpi) {
         Date dayMinus5 = cal.getTime();
         int dayMinus5MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus5);
         findViewById(R.id.ViewDayMood3).setBackgroundResource(moodColor(dayMinus5MoodIndex));
+        findViewById(R.id.ViewDayMood3).getLayoutParams().width = widthOfMood(dayMinus5MoodIndex);
         final String dayMinus5Comment = MoodPreferences.getMoodCommentForDate(dayMinus5);
         ImageView comment3 = findViewById(R.id.commentary3);
         if (dayMinus5Comment == null) {
@@ -285,6 +288,7 @@ switch(metrics.densityDpi) {
         Date dayMinus6 = cal.getTime();
         int dayMinus6MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus6);
         findViewById(R.id.ViewDayMood2).setBackgroundResource(moodColor(dayMinus6MoodIndex));
+        findViewById(R.id.ViewDayMood2).getLayoutParams().width = widthOfMood(dayMinus6MoodIndex);
         final String dayMinus6Comment = MoodPreferences.getMoodCommentForDate(dayMinus6);
         ImageView comment2 = findViewById(R.id.commentary2);
         if (dayMinus6Comment == null) {
@@ -303,6 +307,7 @@ switch(metrics.densityDpi) {
         Date dayMinus7 = cal.getTime();
         int dayMinus7MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus7);
         findViewById(R.id.ViewDayMood1).setBackgroundResource(moodColor(dayMinus7MoodIndex));
+        findViewById(R.id.ViewDayMood1).getLayoutParams().width = widthOfMood(dayMinus7MoodIndex);
         final String dayMinus7Comment = MoodPreferences.getMoodCommentForDate(dayMinus7);
         ImageView comment1 = findViewById(R.id.commentary1);
         if (dayMinus7Comment == null) {
