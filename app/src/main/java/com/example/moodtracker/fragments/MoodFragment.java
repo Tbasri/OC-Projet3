@@ -1,6 +1,5 @@
 package com.example.moodtracker.fragments;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,7 @@ public class MoodFragment extends Fragment {
 
     private int mPosition;
 
-
-    public MoodFragment() {
-        // Required empty public constructor
+    public MoodFragment() {       // Required empty public constructor
     }
 
     public static MoodFragment newInstance(int position) {
@@ -58,5 +55,4 @@ public class MoodFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(getLayout(), container, false);
     }
-
 }

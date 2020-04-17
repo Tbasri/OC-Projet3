@@ -22,14 +22,7 @@ import com.example.moodtracker.utils.OnSwipetouchListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-// Ecran principal de l'application
-// Il permet de :
-// • changer l'humeur du jour
-// • démarrage du dialog pour changer le commentaire
-// • démarrage de l'activité historique
-
-//ressource des differents fragment Mood pour les switch
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {         //ressource des differents fragment Mood pour les switch
     private int currentPosition = 2;
 
     // Appelé quand l'écran démarrage
@@ -38,19 +31,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Appel la vue du fragment
-        final View view = findViewById(R.id.fragment);
+        final View view = findViewById(R.id.fragment);         // Appel la vue du fragment
 
         changeFragment(view, MoodFragment.newInstance(currentPosition));
         view.setOnTouchListener(new OnSwipetouchListener(MainActivity.this) {
 
-            //fonction lors du switch vers le haut
-            public void onSwipeTop() {
+            public void onSwipeTop() {                         //fonction lors du switch vers le haut
                 // message afficher lors de l'action
                 Log.e("DEBUG", "OnSwipeTop");
 
-                //recupere l'index du mood du jour et le commentaire du jour
-                int todayMoodFragmentIndex = currentPosition;
+                int todayMoodFragmentIndex = currentPosition;                                     //recupere l'index du mood du jour et le commentaire du jour
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
@@ -85,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //afficher une une fentre de gialogue lors du clique sur l'image commentaire a la page d'acceuille
-        ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);
+        ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);          //afficher une une fentre de gialogue lors du clique sur l'image commentaire a la page d'acceuille
         buttonCommentaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // affiche la page de l'historique lors du clique sur l'image historique
-        ImageView buttonHistory = findViewById(R.id.imageView_main_history);
+        ImageView buttonHistory = findViewById(R.id.imageView_main_history);        // affiche la page de l'historique lors du clique sur l'image historique
         buttonHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //permet de changer de fragement
-    public void changeFragment(View view, Fragment fragment) {
+    public void changeFragment(View view, Fragment fragment) {                        //permet de changer de fragement
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(view.getId(), fragment);
         transaction.commit();

@@ -7,20 +7,15 @@ public class SaveMood {
     private int moodPosition;
 
     //Constructeur
-
-
     public SaveMood(String date, String comment, int moodPosition) {
         this.date = date;
         this.comment = comment;
         this.moodPosition = moodPosition;
-
-        //this.colorIndex = colorIndex;
     }
 
     public String getDate() {
         return date;
     }
-
 
     public String getComment() {
         return (comment);
@@ -38,8 +33,3 @@ public class SaveMood {
 
     public void setMoodPosition(int moodPosition) { this.moodPosition = moodPosition; }
 }
-
-// setdate et set comment a coder et mood position
-// comprendre la fonctionnaliter de colorIndex pk?
-//}
-

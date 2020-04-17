@@ -13,13 +13,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-//fonction des enregistrer
-public class MoodPreferences {
+public class MoodPreferences {       //fonction des enregistrer
 
     static Gson gson = new Gson();
 
-    // recupere la list de save mood sauvegarder dans le telephone
-    public static List<SaveMood> getMoods() {
+    public static List<SaveMood> getMoods() {                              // recupere la list de save mood sauvegarder dans le telephone
         SharedPreferences sharedPreferences = MyApp.sharedPreferences;
 
         String json = sharedPreferences.getString("Mood", null);
@@ -30,12 +28,10 @@ public class MoodPreferences {
             saveMood = gson.fromJson(json, new TypeToken<List<SaveMood>>() {
             }.getType());
         }
-
         return saveMood;
     }
 
-    // recupere l'index du mood lier date grace a une boucle
-    public static int getMoodIndexForDate(Date date) {
+    public static int getMoodIndexForDate(Date date) {           // recupere l'index du mood lier date grace a une boucle
         List<SaveMood> list = getMoods();
 
         int index = -1;
@@ -47,24 +43,20 @@ public class MoodPreferences {
 
             if (mood.getDate().equals(today)) {
                 index = i;
-
             }
         }
         return index;
     }
 
-    //recupere la index du mood lier a la date sinon normal mood par default
-    public static SaveMood getMoodForDate(Date date) {
+    public static SaveMood getMoodForDate(Date date) {      //recupere la index du mood lier a la date sinon normal mood par default
         int index = getMoodIndexForDate(date);
         if (index != -1) {
             return getMoods().get(index);
         }
-
         return null;
     }
 
-    //recupere le mood lier a la date
-    public static int getMoodFragmentIndexForDate(Date date) {
+    public static int getMoodFragmentIndexForDate(Date date) {               //recupere le mood lier a la date
         SaveMood dateMood = getMoodForDate(date);
         if (dateMood == null) {
             return 5;
@@ -73,8 +65,7 @@ public class MoodPreferences {
         }
     }
 
-    //recupere le commentaire lier a la date
-    public static String getMoodCommentForDate(Date date) {
+    public static String getMoodCommentForDate(Date date) {           //recupere le commentaire lier a la date
         SaveMood dateMood = getMoodForDate(date);
         if (dateMood == null) {
             return null;
@@ -83,8 +74,7 @@ public class MoodPreferences {
         }
     }
 
-    // Changer l'humeur d'aujourd'hui
-    public static void changeTodayMood(SaveMood saveMood) {
+    public static void changeTodayMood(SaveMood saveMood) {          // Changer l'humeur d'aujourd'hui
         SaveMood newMood = saveMood;
         int listindex = MoodPreferences.getMoodIndexForDate(new Date());
 
@@ -106,4 +96,3 @@ public class MoodPreferences {
                 .apply();
     }
 }
-
