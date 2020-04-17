@@ -3,7 +3,6 @@ package com.example.moodtracker.activities;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,82 +16,6 @@ import java.util.Date;
 
 // Ecran qui affiche l'historique des humeurs
 public class HistoricActivity extends AppCompatActivity {
-
-    // Afficher couleur
-//j'attribue un index de 0 à 4 sur chaque couleur
-
-  /*  private void getDeviceMetrics(){
-        //Get Device Width and Height
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowmanager = (WindowManager) getApplicationContext().getSystemService(getApplicationContext().WINDOW_SERVICE);
-        windowmanager.getDefaultDisplay().getMetrics(displayMetrics);
-        deviceWidth = displayMetrics.widthPixels;
-    }
-    //Define FrameLayout metrics with device metrics * size of mood
-    final double [] viewSizeMultiplier = {0.25, 0.4, 0.6, 0.8, 1};
-    getDeviceMetrics();
-    FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-            (int) (deviceWidth*viewSizeMultiplier),
-            (int) deviceHeight/9);
-
-    private static String getDensityName(Context context) {
-        float density = context.getResources().getDisplayMetrics().density;
-        if () {
-            return "";
-        }
-        if () {
-            return "";
-        }
-        if () {
-            return "";
-        }
-        if () {
-            return "";
-        }
-        if (density >= 1.0) {
-            return "mdpi";
-        }
-        return "ldpi";
-    }
-    DisplayMetrics metrics = new DisplayMetrics();
-    getWindowManager().getDefaultDisplay().getMetrics(metrics);
-
-switch(metrics.densityDpi) {
-        case DisplayMetrics.DENSITY_LOW:
-            break;
-
-        case DisplayMetrics.DENSITY_MEDIUM:
-            break;
-
-        case DisplayMetrics.DENSITY_HIGH:
-            break;
-    }
-
-    private int widthPixels(int moodIndex) {
-
-        int widthPixels;
-
-        switch (metrics.widthPixels){
-
-            case 0:
-
-                widthPixels = DisplayMetrics/1;
-            case 1:
-
-                widthPixels = DisplayMetrics/2;
-
-            case 2:
-
-                widthPixels = DisplayMetrics/3;
-
-            case 3:
-
-                widthPixels = DisplayMetrics/4;
-        }
-
-
-    }
-*/
 
 // fonction qui permet de retourner la taille en fonction de leur mood
     private int widthOfMood(int moodIndex) {
@@ -133,9 +56,8 @@ switch(metrics.densityDpi) {
         return widthOfMood;
     }
 
-
-
-
+    // Afficher couleur
+//j'attribue un index de 0 à 4 sur chaque couleur
     private int moodColor(int moodIndex) {
 
         int moodColor;
@@ -170,33 +92,21 @@ switch(metrics.densityDpi) {
         return moodColor;
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historique);
+        setContentView(R.layout.activity_history);
 
+        Calendar cal = Calendar.getInstance();                                                     //obtient un calendrier utilisant le fuseau horaire actuel
 
-        //obtient un calendrier utilisant le fuseau horaire actuel
-        Calendar cal = Calendar.getInstance();
-        //renvoie un objet ressemblant à la date qui est représentée par la valeur d'heure de ce calendrier
-        // Récupérer la vue et afficher la bonne couleur rendre visible ou non le commentaire
-        //recupere le commentraire du jour pour l'assigner a todaycomment
-        //recupere le mood lier a la date et l'attribue a today mood index
-        // recupere la couleur du mood pour ensuite l'afficher la couleur sur le background du xml
-        //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
-
-
-
-        cal.add(Calendar.DATE, -1);
+        cal.add(Calendar.DATE, -1);                                                       //renvoie un objet ressemblant à la date qui est représentée par la valeur d'heure de ce calendrier
         Date dayMinus1 = cal.getTime();
-        int dayMinus1MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus1);
-        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(dayMinus1MoodIndex));
+        int dayMinus1MoodIndex = MoodPreferences.getMoodFragmentIndexForDate(dayMinus1);          //recupere le mood lier a la date et l'attribue a dayMinus1MoodIndex
+        findViewById(R.id.ViewDayMood7).setBackgroundResource(moodColor(dayMinus1MoodIndex));     // recupere la couleur du mood pour ensuite l'afficher la couleur sur le background du xml
         findViewById(R.id.ViewDayMood7).getLayoutParams().width = widthOfMood(dayMinus1MoodIndex);
-        final String yesterdayComment = MoodPreferences.getMoodCommentForDate(dayMinus1);
+        final String yesterdayComment = MoodPreferences.getMoodCommentForDate(dayMinus1);         //recupere le commentraire du jour pour l'assigner a todaycomment
         ImageView comment7 = findViewById(R.id.commentary7);
-        if (yesterdayComment == null) {
+        if (yesterdayComment == null) {                                                           //Rend visible le logo du commentaire si il y a des une note ou invisible si il y a rien noté
             comment7.setVisibility(View.INVISIBLE);
         } else {
             comment7.setVisibility(View.VISIBLE);
