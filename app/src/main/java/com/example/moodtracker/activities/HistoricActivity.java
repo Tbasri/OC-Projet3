@@ -65,23 +65,23 @@ public class HistoricActivity extends AppCompatActivity {
         switch (moodIndex) {
 
             case 0:
-                moodColor = (R.color.ic_tres_mauvaise_humeur);
+                moodColor = (R.color.very_sad_color);
                 break;
 
             case 1:
-                moodColor = (R.color.ic_mauvaise_humeur);
+                moodColor = (R.color.sad_color);
                 break;
 
             case 2:
-                moodColor = (R.color.ic_humeur_normal);
+                moodColor = (R.color.normal_color);
                 break;
 
             case 3:
-                moodColor = (R.color.ic_good_mood);
+                moodColor = (R.color.good_color);
                 break;
 
             case 4:
-                moodColor = (R.color.ic_very_good_mood);
+                moodColor = (R.color.very_good_color);
                 break;
 
             default:
