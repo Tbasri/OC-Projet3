@@ -49,7 +49,7 @@ public class HistoricActivity extends AppCompatActivity {
                 break;
 
             default:
-                widthOfMood = (int) ( screenwidth * 0.2);
+                widthOfMood = (int) ( screenwidth  );
                 break;
 
         }
