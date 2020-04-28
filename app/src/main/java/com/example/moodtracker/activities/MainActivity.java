@@ -1,6 +1,7 @@
 package com.example.moodtracker.activities;
 
 import android.app.AlarmManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moodtracker.R;
 import com.example.moodtracker.fragments.MoodFragment;
+import com.example.moodtracker.models.Alarm;
 import com.example.moodtracker.models.SaveMood;
 import com.example.moodtracker.utils.MoodPreferences;
 import com.example.moodtracker.utils.OnSwipetouchListener;
@@ -27,8 +29,6 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {         //ressource des differents fragment Mood pour les switch
     private int currentPosition = 2;
 
-    private AlarmManager alarmMgr;
- //   private PendingIntent alarmIntent;
 
     // Appelé quand l'écran démarrage
     @Override
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
-                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment,todayMoodFragmentIndex);
+                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment, todayMoodFragmentIndex);
                 MoodPreferences.changeTodayMood(newMood);
 
                 if (currentPosition > 0) {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
-                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment,todayMoodFragmentIndex);
+                SaveMood newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), todayMoodComment, todayMoodFragmentIndex);
                 MoodPreferences.changeTodayMood(newMood);
 
                 if (currentPosition < 4) {
@@ -80,28 +80,24 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
 
         });
 
-    //    alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-    //    Intent intent = new Intent(context, AlarmReceiver.class);
-     //   alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
-        // Réglez l'alarme pour qu'elle a commencé vers 23 h 59.
-     //   Calendar calendrier = Calendar.getInstance();
-     //   calendrier.setTimeInMillis ( System . currentTimeMillis ());
-    //    calendrier.set ( Calendar . HOUR_OF_DAY , 23);
-     //   calendrier.set(Calendar.MINUTE, 59);
+       AlarmManager am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent myIntent;
 
-// Avec setInexactRepeating (), vous devez utiliser l'un des intervalles AlarmManager
-// constantes - dans ce cas, AlarmManager.INTERVAL_DAY
-// .
-     //   alarmMgr.setInexactRepeating ( AlarmManager. RTC_WAKEUP , calendar . getTimeInMillis (),
-      //          AlarmManager . INTERVAL_DAY , alarmIntent );
+        myIntent = new Intent(MainActivity.this, Alarm.class);
 
-// Si l'alarme a été connue, annulez-la.
-    //    if ( alarmMgr ! = null ) {
-     //       alarmMgr . annuler ( alarmIntent );
-    //    }
 
-        ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);          //afficher une une fentre de gialogue lors du clique sur l'image commentaire a la page d'acceuille
+
+
+
+      //  Calendar calendar = Calendar.getInstance();
+       // calendar.setTimeInMillis(System.currentTimeMillis());
+        //calendar.set(Calendar.HOUR_OF_DAY, 00);
+
+
+
+
+        ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);          //afficher une une fentre de dialogue lors du clique sur l'image commentaire a la page d'acceuille
         buttonCommentaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
