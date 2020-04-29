@@ -1,6 +1,7 @@
 package com.example.moodtracker.activities;
 
 import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,7 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {         //ressource des differents fragment Mood pour les switch
+public class MainActivity extends AppCompatActivity {   //ressource des differents fragment Mood pour les switch
     private int currentPosition = 2;
 
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
                 // message afficher lors de l'action
                 Log.e("DEBUG", "OnSwipeTop");
 
-                int todayMoodFragmentIndex = currentPosition;                                     //recupere l'index du mood du jour et le commentaire du jour
+                int todayMoodFragmentIndex = currentPosition;                               //recupere l'index du mood du jour et le commentaire du jour
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
                 //enregistre le mood sous la forme simple date format avec le mood plus le commentaires
@@ -80,14 +81,17 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
 
         });
 
-
-       AlarmManager am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        Intent myIntent;
-
-        myIntent = new Intent(MainActivity.this, Alarm.class);
+        public void alarmWork() {
 
 
+            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Intent myIntent;
+            PendingIntent alarmIntent ;
 
+            myIntent = new Intent(MainActivity.this, Alarm.class);
+         //   am.setInexactRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance(),AlarmManager.INTERVAL_DAY,alarmIntent);
+
+        }
 
 
       //  Calendar calendar = Calendar.getInstance();
@@ -97,7 +101,7 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
 
 
 
-        ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);          //afficher une une fentre de dialogue lors du clique sur l'image commentaire a la page d'acceuille
+        ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);  //afficher une une fentre de dialogue lors du clique sur l'image commentaire a la page d'acceuille
         buttonCommentaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {         //ressource des di
             }
         });
 
-        ImageView buttonHistory = findViewById(R.id.imageView_main_history);        // affiche la page de l'historique lors du clique sur l'image historique
+        ImageView buttonHistory = findViewById(R.id.imageView_main_history);      // affiche la page de l'historique lors du clique sur l'image historique
         buttonHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
