@@ -30,6 +30,32 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {   //ressource des differents fragment Mood pour les switch
     private int currentPosition = 2;
 
+    public void alarmWork() {
+
+        Intent myIntent = new Intent(MainActivity.this, Alarm.class);
+
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        PendingIntent pendingIntent =  PendingIntent.getService(MainActivity.this ,0 , myIntent, PendingIntent.FLAG_NO_CREATE);
+
+        if
+        (pendingIntent != null && am != null) {
+            am.cancel(pendingIntent);
+
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
+        calendar.set(Calendar.MINUTE, 23);
+
+
+        am.setInexactRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+
+    }
+
+
+
 
     // Appelé quand l'écran démarrage
     @Override
@@ -81,25 +107,7 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
 
         });
 
-        public void alarmWork() {
-
-
-            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            Intent myIntent;
-            PendingIntent alarmIntent ;
-
-            myIntent = new Intent(MainActivity.this, Alarm.class);
-         //   am.setInexactRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance(),AlarmManager.INTERVAL_DAY,alarmIntent);
-
-        }
-
-
-      //  Calendar calendar = Calendar.getInstance();
-       // calendar.setTimeInMillis(System.currentTimeMillis());
-        //calendar.set(Calendar.HOUR_OF_DAY, 00);
-
-
-
+         alarmWork();
 
         ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);  //afficher une une fentre de dialogue lors du clique sur l'image commentaire a la page d'acceuille
         buttonCommentaire.setOnClickListener(new View.OnClickListener() {
