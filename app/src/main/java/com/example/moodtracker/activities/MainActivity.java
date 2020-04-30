@@ -34,27 +34,21 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
 
         Intent myIntent = new Intent(MainActivity.this, Alarm.class);
 
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);         // fonction alarm manager qui sert a utiliser l'alarm
 
-        PendingIntent pendingIntent =  PendingIntent.getService(MainActivity.this ,0 , myIntent, PendingIntent.FLAG_NO_CREATE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, 0);  //pending intent pour repeter l'alarme c'est une intention en attente
 
-        if
-        (pendingIntent != null && am != null) {
+        if (pendingIntent != null && am != null) {
             am.cancel(pendingIntent);
-
         }
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 18);
-        calendar.set(Calendar.MINUTE, 23);
+        Calendar calendar = Calendar.getInstance();                 // l'horloge ce refere a l'heure du telephone
+        calendar.set(Calendar.HOUR_OF_DAY, 23);                    // donner une heure pour l'alarme
+        calendar.set(Calendar.MINUTE, 59);                           // minutes
+        calendar.set(Calendar.SECOND, 59);
 
-
-        am.setInexactRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
-
+        am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);    // Fait repeter l'alarme avec les different parametres
     }
-
-
 
 
     // Appelé quand l'écran démarrage
@@ -83,7 +77,6 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
                     currentPosition--;
                     changeFragment(view, MoodFragment.newInstance(currentPosition));
                 }
-
             }
 
             //fonction lors du switch vers le bas
@@ -107,7 +100,7 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
 
         });
 
-         alarmWork();
+        alarmWork();
 
         ImageView buttonCommentaire = findViewById(R.id.imageView_main_comment);  //afficher une une fentre de dialogue lors du clique sur l'image commentaire a la page d'acceuille
         buttonCommentaire.setOnClickListener(new View.OnClickListener() {
@@ -147,8 +140,8 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
                 int todayMoodFragmentIndex = currentPosition;
 
 
-                String dateMood =new SimpleDateFormat("yyyyMMdd").format(new Date());
-                SaveMood newMood = new SaveMood(dateMood,myComment,todayMoodFragmentIndex  );
+                String dateMood = new SimpleDateFormat("yyyyMMdd").format(new Date());
+                SaveMood newMood = new SaveMood(dateMood, myComment, todayMoodFragmentIndex);
                 MoodPreferences.changeTodayMood(newMood);
 
             }
