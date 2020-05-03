@@ -74,7 +74,7 @@ public class MoodPreferences {       //fonction des enregistrer
         }
     }
 
-    public static void changeTodayMood(SaveMood saveMood) {          // Changer l'humeur d'aujourd'hui
+    public static void changeTodayMood(SaveMood saveMood) {   // Changer l'humeur d'aujourd'hui
         SaveMood newMood = saveMood;
         int listindex = MoodPreferences.getMoodIndexForDate(new Date());
 

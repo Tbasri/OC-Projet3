@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,17 +59,21 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         final View view = findViewById(R.id.fragment);         // Appel la vue du fragment
 
         changeFragment(view, MoodFragment.newInstance(currentPosition));
         view.setOnTouchListener(new OnSwipetouchListener(MainActivity.this) {
 
 
-
             public void onSwipeTop() {                         //fonction lors du switch vers le haut
                 // message afficher lors de l'action
                 Log.e("DEBUG", "OnSwipeTop");
-
+                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.swipe);
+                if (mediaPlayer.isPlaying()){
+                    mediaPlayer.stop();
+                }
                 int todayMoodFragmentIndex = currentPosition;                               //recupere l'index du mood du jour et le commentaire du jour
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
 
@@ -80,13 +85,17 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
                     currentPosition--;
                     changeFragment(view, MoodFragment.newInstance(currentPosition));
                 }
+                mediaPlayer.start();
             }
 
             //fonction lors du switch vers le bas
             public void onSwipeBottom() {
 
                 Log.e("DEBUG", "onSwipeBottom");
-
+                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.swipe);
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                }
                 //recupere l'index du mood du jour et le commentaire du jour
                 int todayMoodFragmentIndex = currentPosition;
                 String todayMoodComment = MoodPreferences.getMoodCommentForDate(new Date());
@@ -99,6 +108,7 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
                     currentPosition++;
                     changeFragment(view, MoodFragment.newInstance(currentPosition));
                 }
+                    mediaPlayer.start();
             }
 
         });
