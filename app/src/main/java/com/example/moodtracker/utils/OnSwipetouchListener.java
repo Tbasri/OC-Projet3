@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+
 // fonctionnement pour le swipe
 public class OnSwipetouchListener implements View.OnTouchListener {
 
@@ -47,12 +48,8 @@ public class OnSwipetouchListener implements View.OnTouchListener {
     }
 
     public void onSwipeTop() {
-
     }
 
     public void onSwipeBottom() {
-
     }
-
-
 }

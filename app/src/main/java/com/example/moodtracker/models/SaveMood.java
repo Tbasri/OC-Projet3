@@ -24,7 +24,6 @@ public class SaveMood {
     public int getMoodPosition() {
         return moodPosition;
     }
-
     public void setDate(String date) {
         this.date = date;
     }

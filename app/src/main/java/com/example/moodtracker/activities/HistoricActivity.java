@@ -17,7 +17,7 @@ import java.util.Date;
 // Ecran qui affiche l'historique des humeurs
 public class HistoricActivity extends AppCompatActivity {
 
-// fonction qui permet de retourner la taille en fonction de leur mood
+    // fonction qui permet de retourner la taille en fonction de leur mood
     private int widthOfMood(int moodIndex) {
 
         int widthOfMood;
@@ -25,33 +25,33 @@ public class HistoricActivity extends AppCompatActivity {
         DisplayMetrics metrics = new DisplayMetrics();
         // utilisation du windows manager pour recuperer les dimensions de l'ecran qui est mis dans l'objet metrics
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
         int screenwidth = metrics.widthPixels;
 
         switch (moodIndex) {
             case 0:
-                widthOfMood = (int) ( screenwidth * 0.2);
+                widthOfMood = (int) (screenwidth * 0.2);
                 break;
 
             case 1:
-                widthOfMood = (int) ( screenwidth * 0.4);
+                widthOfMood = (int) (screenwidth * 0.4);
                 break;
 
             case 2:
-                widthOfMood = (int) ( screenwidth * 0.6);
+                widthOfMood = (int) (screenwidth * 0.6);
                 break;
 
             case 3:
-                widthOfMood = (int) ( screenwidth * 0.8);
+                widthOfMood = (int) (screenwidth * 0.8);
                 break;
 
             case 4:
-                widthOfMood = (int)  screenwidth ;
+                widthOfMood = (int) screenwidth;
                 break;
 
             default:
-                widthOfMood = (int) ( screenwidth  );
+                widthOfMood = (int) (screenwidth);
                 break;
-
         }
         return widthOfMood;
     }
@@ -87,7 +87,6 @@ public class HistoricActivity extends AppCompatActivity {
             default:
                 moodColor = (R.color.default_color);
                 break;
-
         }
         return moodColor;
     }

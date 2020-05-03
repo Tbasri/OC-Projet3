@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class MoodPreferences {       //fonction des enregistrer
 
@@ -80,13 +79,13 @@ public class MoodPreferences {       //fonction des enregistrer
 
         List<SaveMood> list = MoodPreferences.getMoods();
         if (saveMood == null) {
-            newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()),"",2);
+            newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), "", 2);
             list.add(newMood);
         } else if (listindex == -1) {
 
             list.add(newMood);
         } else {
-            newMood.setMoodPosition(newMood.getMoodPosition() );
+            newMood.setMoodPosition(newMood.getMoodPosition());
             list.set(listindex, newMood);
         }
 

@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         final View view = findViewById(R.id.fragment);         // Appel la vue du fragment
 
         changeFragment(view, MoodFragment.newInstance(currentPosition));
@@ -70,8 +68,8 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
             public void onSwipeTop() {                         //fonction lors du switch vers le haut
                 // message afficher lors de l'action
                 Log.e("DEBUG", "OnSwipeTop");
-                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.swipe);
-                if (mediaPlayer.isPlaying()){
+                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.swipe);
+                if (mediaPlayer.isPlaying()) {
                     mediaPlayer.stop();
                 }
                 int todayMoodFragmentIndex = currentPosition;                               //recupere l'index du mood du jour et le commentaire du jour
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
             public void onSwipeBottom() {
 
                 Log.e("DEBUG", "onSwipeBottom");
-                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.swipe);
+                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.swipe);
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.stop();
                 }
@@ -108,9 +106,8 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
                     currentPosition++;
                     changeFragment(view, MoodFragment.newInstance(currentPosition));
                 }
-                    mediaPlayer.start();
+                mediaPlayer.start();
             }
-
         });
 
         alarmWork();
@@ -156,7 +153,6 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
                 String dateMood = new SimpleDateFormat("yyyyMMdd").format(new Date());
                 SaveMood newMood = new SaveMood(dateMood, myComment, todayMoodFragmentIndex);
                 MoodPreferences.changeTodayMood(newMood);
-
             }
         });
 

@@ -6,13 +6,10 @@ import android.content.Intent;
 
 import com.example.moodtracker.utils.MoodPreferences;
 
-
 public class Alarm extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
         MoodPreferences.changeTodayMood(null);
-
     }
-
 }
