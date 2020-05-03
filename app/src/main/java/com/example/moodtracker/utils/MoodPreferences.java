@@ -80,7 +80,7 @@ public class MoodPreferences {       //fonction des enregistrer
 
         List<SaveMood> list = MoodPreferences.getMoods();
         if (saveMood == null) {
-            newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()),"",5);
+            newMood = new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()),"",2);
             list.add(newMood);
         } else if (listindex == -1) {
 

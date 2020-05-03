@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
             am.cancel(pendingIntent);
         }
 
-        Calendar calendar = Calendar.getInstance();                 // l'horloge ce refere a l'heure du telephone
+        Calendar calendar = Calendar.getInstance();// l'horloge ce refere a l'heure du telephone
+
         calendar.set(Calendar.HOUR_OF_DAY, 23);                    // donner une heure pour l'alarme
         calendar.set(Calendar.MINUTE, 59);                           // minutes
         calendar.set(Calendar.SECOND, 59);
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
 
         changeFragment(view, MoodFragment.newInstance(currentPosition));
         view.setOnTouchListener(new OnSwipetouchListener(MainActivity.this) {
+
+
 
             public void onSwipeTop() {                         //fonction lors du switch vers le haut
                 // message afficher lors de l'action
@@ -161,8 +164,6 @@ public class MainActivity extends AppCompatActivity {   //ressource des differen
         Intent intent = new Intent(this, HistoricActivity.class);
         startActivity(intent);
     }
-
-
 }
 
 
