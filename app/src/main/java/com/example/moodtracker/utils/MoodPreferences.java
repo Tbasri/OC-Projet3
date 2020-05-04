@@ -58,7 +58,7 @@ public class MoodPreferences {       //fonction des enregistrer
     public static int getMoodFragmentIndexForDate(Date date) {               //recupere le mood lier a la date
         SaveMood dateMood = getMoodForDate(date);
         if (dateMood == null) {
-            return 5;
+            return 2;
         } else {
             return dateMood.getMoodPosition();
         }
