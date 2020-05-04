@@ -14,20 +14,16 @@ import com.example.moodtracker.utils.MoodPreferences;
 import java.util.Calendar;
 import java.util.Date;
 
-// Ecran qui affiche l'historique des humeurs
-public class HistoricActivity extends AppCompatActivity {
 
-    // fonction qui permet de retourner la taille en fonction de leur mood
-    private int widthOfMood(int moodIndex) {
+public class HistoricActivity extends AppCompatActivity {     // Ecran qui affiche l'historique des humeurs
+    private int widthOfMood(int moodIndex) {         // fonction qui permet de retourner la taille en fonction de leur mood
 
         int widthOfMood;
-        // creation de la d'un objet de type DisplayMetrics
-        DisplayMetrics metrics = new DisplayMetrics();
-        // utilisation du windows manager pour recuperer les dimensions de l'ecran qui est mis dans l'objet metrics
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        DisplayMetrics metrics = new DisplayMetrics();     // creation de la d'un objet de type DisplayMetrics
+        getWindowManager().getDefaultDisplay().getMetrics(metrics); // utilisation du windows manager pour recuperer les dimensions de l'ecran qui est mis dans l'objet metrics
 
         int screenwidth = metrics.widthPixels;
-
         switch (moodIndex) {
             case 0:
                 widthOfMood = (int) (screenwidth * 0.2);
@@ -56,12 +52,9 @@ public class HistoricActivity extends AppCompatActivity {
         return widthOfMood;
     }
 
-    // Afficher couleur
-//j'attribue un index de 0 à 4 sur chaque couleur
-    private int moodColor(int moodIndex) {
+    private int moodColor(int moodIndex) {          // Afficher couleur                            //j'attribue un index de 0 à 4 sur chaque couleur
 
         int moodColor;
-
         switch (moodIndex) {
 
             case 0:
@@ -95,7 +88,6 @@ public class HistoricActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-
         Calendar cal = Calendar.getInstance();                                                     //obtient un calendrier utilisant le fuseau horaire actuel
 
         cal.add(Calendar.DATE, -1);                                                       //renvoie un objet ressemblant à la date qui est représentée par la valeur d'heure de ce calendrier
