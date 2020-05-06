@@ -13,9 +13,11 @@ public class Alarm extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        if (MoodPreferences.changeTodayMood(null) {
-        (MoodPreferences.changeTodayMood(new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), "", 2));
+        int listindex = MoodPreferences.getMoodIndexForDate(new Date());
+
+       if (listindex < 0){
+        MoodPreferences.changeTodayMood(new SaveMood(new SimpleDateFormat("yyyyMMdd").format(new Date()), null, 2));
     }
 
-}
-}
+}}
+
